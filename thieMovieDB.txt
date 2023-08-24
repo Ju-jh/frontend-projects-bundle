@@ -1,0 +1,293 @@
+api Application Program Interface
+
+----------------------------------------------------------------
+
+가입
+  https://wwew.themoviedb.org
+  이메일인증 후 로그인
+
+도움말
+  https://developer.themoviedb.org/docs
+  https://developer.themoviedb.org/reference
+
+apikey발급
+  프로필아이콘 클릭 후 설정페이지 이동
+  설정메뉴 / API / API 키 요청 (click here) 
+  Developer 선택
+  API 서비스 이용형태 설정 
+    이용형태 : website
+    어플리케이션URL : localhost (개발 후 변경)
+
+----------------------------------------------------------------
+
+호출
+  최신영화
+  https://api.themoviedb.org/3/movie/latest?api_key={key}&language=ko-KR&include_adult=false&sort_by=popularity.desc&page=1
+  상영작
+  /movie/now_playing
+  인기작
+  /movie/popular
+  트렌딩
+  /trending/all/week
+  평점순
+  /movie/top_rated
+  개봉예정작
+  /movie/upcoming
+  영화상세
+  /movie/{movieid}
+  유사영화
+  /movie/{movie_id}/similar
+  영화이미지
+  /movie/{movie_id}/images
+  영화리뷰
+  /movie/{movieid}/reviews
+  출연진
+  /movie/{movie_id}/credits
+  인물
+  /person/person_id
+  인물 관련 영화 목록
+  /person/person_id/movie_credits
+  인물 관련 이미지
+  /person/person_id/images
+  키워드검색
+  /search/multi?{apikey}&{lang}&query=avengers
+  영화제목검색
+  /search/movie?{apikey}&{lang}&query=avengers
+  제작사검색
+  /search/company?{apikey}&{lang}&query=disney
+  인물검색
+  /search/person?{apikey}&{lang}&query=bong+jun+ho
+  장르별검색
+    · 액션,모험 장르 예시
+      https://api.themoviedb.org/3/genre/movie/list?api_key={apikey}&language=ko-KR&with_genres=28,35
+
+----------------------------------------------------------------
+
+유튜브 동영상 경로
+  1. 유튜브 video 배열 가져오기 
+    https://api.themoviedb.org/3/movie/{movieid}/videos?api_key={apikey}&language=ko-KR
+
+  2. video의 key값으로 youtube 호출
+    <iframe src="http://www.youtube.com/embed/{key}?playlist={key}&autoplay=1&loop=1&mute=1&playsinline=1" allowfullscreen></iframe>
+
+  3. youtube 비디오 썸네일 
+    https://img.youtube.com/vi/{key}/mqdefault.jpg
+
+----------------------------------------------------------------
+
+이미지경로
+  https://image.tmdb.org/t/p/original/이미지.jpg
+  https://image.tmdb.org/t/p/w500/이미지.jpg
+
+----------------------------------------------------------------
+장르(genres)
+{
+  28: "액션",
+  12: "모험",
+  16: "애니메이션",
+  35: "코메디",
+  80: "범죄",
+  99: "다큐멘터리",
+  18: "드라마",
+  10751: "가족",
+  14: "판타지",
+  36: "역사",
+  27: "공포",
+  10402: "음악",
+  9648: "미스테리",
+  10749: "로맨스",
+  878: "SF",
+  10770: "TV영화",
+  53: "스릴러",
+  10752: "전쟁",
+  37: "서부극",
+}
+
+----------------------------------------------------------------
+
+영화목록 데이터 응답 샘플
+{
+  "adult": false,
+  "backdrop_path": "/jZIYaISP3GBSrVOPfrp98AMa8Ng.jpg",
+  "genre_ids": [16,35,10751],
+  "id": 976573,
+  "original_language": "en",
+  "original_title": "Elemental",
+  "overview": "불, 물, 공기, 흙 4개의 원소들이 살고 있는 엘리멘트 시티. 재치 있고 불처럼 열정 넘치는 앰버는 어느 날 우연히 유쾌하고 감성적이며 물 흐르듯 사는 웨이드를 만나 특별한 우정을 쌓으며, 지금껏 믿어온 모든 것들이 흔들리는 새로운 경험을 하게 되는데...",
+  "popularity": 3354.676,
+  "poster_path": "/1YYL1OcgjPLjAGi6n0iZe1gdl9i.jpg",
+  "release_date": "2023-06-14",
+  "title": "엘리멘탈",
+  "video": false,
+  "vote_average": 7.7,
+  "vote_count": 994
+},{},{},...
+
+------------------------------------------------------------------
+
+영화상세 데이터 응답 샘플
+{
+  "adult": false,
+  "backdrop_path": "/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+  "belongs_to_collection": {
+      "id": 573436,
+      "name": "스파이더맨: 뉴 유니버스 시리즈",
+      "poster_path": "/eD4bGQNfmqExIAzKdvX5gDHhI2.jpg",
+      "backdrop_path": "/14F6gMaRjzgsN6EEpiwH87R1I00.jpg"
+  },
+  "budget": 100000000,
+  "genres": [
+      {
+          "id": 16,
+          "name": "애니메이션"
+      },
+      {
+          "id": 28,
+          "name": "액션"
+      },
+      {
+          "id": 12,
+          "name": "모험"
+      },
+      {
+          "id": 878,
+          "name": "SF"
+      }
+  ],
+  "homepage": "",
+  "id": 569094,
+  "imdb_id": "tt9362722",
+  "original_language": "en",
+  "original_title": "Spider-Man: Across the Spider-Verse",
+  "overview": "여러 성장통을 겪으며 새로운 스파이더맨이 된 마일스 모랄레스. 그 앞에 다른 평행세계의 스파이더우먼 그웬이 다시 나타난다. 모든 차원의 멀티버스 속 스파이더맨들을 만나게 되지만, 질서에 대한 신념이 부딪히며 예상치 못한 균열이 생기는데… 상상 그 이상을 넘어서는 멀티버스의 세계가 열린다!",
+  "popularity": 2501.039,
+  "poster_path": "/zG9TYiHt0fdaJiWuNEhFrfKzwoi.jpg",
+  "production_companies": [
+      {
+          "id": 5,
+          "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+          "name": "Columbia Pictures",
+          "origin_country": "US"
+      },
+      {
+          "id": 2251,
+          "logo_path": "/5ilV5mH3gxTEU7p5wjxptHvXkyr.png",
+          "name": "Sony Pictures Animation",
+          "origin_country": "US"
+      },
+      {
+          "id": 77973,
+          "logo_path": "/9y5lW86HnxKUZOFencYk3TIIRCM.png",
+          "name": "Lord Miller",
+          "origin_country": "US"
+      },
+      {
+          "id": 84041,
+          "logo_path": "/nw4kyc29QRpNtFbdsBHkRSFavvt.png",
+          "name": "Pascal Pictures",
+          "origin_country": "US"
+      },
+      {
+          "id": 14439,
+          "logo_path": null,
+          "name": "Arad Productions",
+          "origin_country": "US"
+      }
+  ],
+  "production_countries": [
+      {
+          "iso_3166_1": "US",
+          "name": "United States of America"
+      }
+  ],
+  "release_date": "2023-05-31",
+  "revenue": 683241751,
+  "runtime": 140,
+  "spoken_languages": [
+      {
+          "english_name": "English",
+          "iso_639_1": "en",
+          "name": "English"
+      },
+      {
+          "english_name": "Hindi",
+          "iso_639_1": "hi",
+          "name": "हिन्दी"
+      },
+      {
+          "english_name": "Italian",
+          "iso_639_1": "it",
+          "name": "Italiano"
+      },
+      {
+          "english_name": "Spanish",
+          "iso_639_1": "es",
+          "name": "Español"
+      }
+  ],
+  "status": "Released",
+  "tagline": "한 명을 구할 것인가, 모두를 구할 것인가",
+  "title": "스파이더맨: 어크로스 더 유니버스",
+  "video": false,
+  "vote_average": 8.46,
+  "vote_count": 3587
+}
+
+------------------------------------------------------------------
+
+비디오 응답 샘플
+[
+    {
+        "iso_639_1": "ko",
+        "iso_3166_1": "KR",
+        "name": "[엘리멘탈] '앰버 가족을 지켜주는 밝게 타오르는 힘, 푸른 불꽃' 영상",
+        "key": "SCMtp-xeqlM",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Featurette",
+        "official": false,
+        "published_at": "2023-06-29T03:00:08.000Z",
+        "id": "64a9f1f59c97bd00c5f7d803"
+    },{},{},..
+]
+
+------------------------------------------------------------------
+
+크레딧 응답 샘플
+{
+    "id": 724209,
+    "cast": [
+        {
+            "adult": false,
+            "gender": 1,
+            "id": 90633,
+            "known_for_department": "Acting",
+            "name": "Gal Gadot",
+            "original_name": "Gal Gadot",
+            "popularity": 127.329,
+            "profile_path": "/AbXKtWQwuDiwhoQLh34VRglwuBE.jpg",
+            "cast_id": 1,
+            "character": "Rachel Stone",
+            "credit_id": "5f0cbd1113a3200036746c3c",
+            "order": 0
+        },{},{},...
+    ],
+    "crew": [
+        {
+            "adult": false,
+            "gender": 1,
+            "id": 2210,
+            "known_for_department": "Production",
+            "name": "Bonnie Curtis",
+            "original_name": "Bonnie Curtis",
+            "popularity": 0.6,
+            "profile_path": null,
+            "credit_id": "5fc856722811a10040a05bd2",
+            "department": "Production",
+            "job": "Producer"
+        },{},{}...
+    ]
+}
+
+
+

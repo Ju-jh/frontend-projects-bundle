@@ -1,0 +1,12 @@
+.home-visual {
+  height: min(70vh, 450px);
+  background: var(--navy);
+}
+.home-visual div.swiper-wrapper {
+  height: 100%;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide {
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid white;
+}/*# sourceMappingURL=home-visual.css.map */

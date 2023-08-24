@@ -1,0 +1,18 @@
+@use "./mixin" as m;
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+}
+.serif {
+  font-family: "Nanum Myeongjo", serif;
+}
+:root {
+  --sky: #03b3e4;
+  --green: #8ccda2;
+  --navy: #091a38;
+}
