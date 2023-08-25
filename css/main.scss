@@ -1,15 +1,33 @@
-@use "./mixin" as m;
+@use './mixin' as m;
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   color: #fff;
   font-size: 14px;
   font-style: normal;
   text-decoration: none;
   font-weight: normal;
+  background-color: var(--navy);
+  background-image: url(../img/line-pattern.png);
+  background-size: 20px;
+  animation: bgmove 100s infinite linear;
+  @media #{m.$min-lg} {
+    padding-top: 80px;
+  }
+  @media #{m.$max-lg} {
+    padding-top: 60px;
+  }
+}
+@keyframes bgmove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }
 .serif {
-  font-family: "Nanum Myeongjo", serif;
+  font-family: 'Nanum Myeongjo', serif;
 }
 :root {
   --sky: #03b3e4;

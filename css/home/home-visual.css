@@ -1,12 +1,142 @@
 .home-visual {
+  position: relative;
   height: min(70vh, 450px);
+  overflow: hidden;
   background: var(--navy);
+  cursor: grab;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+}
+.home-visual:active {
+  cursor: grabbing;
+}
+.home-visual::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 11;
 }
 .home-visual div.swiper-wrapper {
   height: 100%;
 }
 .home-visual div.swiper-wrapper figure.swiper-slide {
+  position: relative;
   height: 100%;
   box-sizing: border-box;
-  border: 1px solid white;
+  overflow: hidden;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide.swiper-slide-active img {
+  transform: scale(1);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide:hover img {
+  filter: brightness(100%);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  filter: brightness(60%);
+  transform: scale(1.1);
+  transition: transform 10s linear, filter 1s;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90%;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption small {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption h6 {
+  margin-top: 5px;
+  font-size: min(8vw, 5em);
+  white-space: nowrap;
+  line-height: 1.3em;
+  font-weight: 600;
+}
+@media screen and (max-width:1400px) {
+  .home-visual div.swiper-wrapper figure.swiper-slide figcaption h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption p {
+  margin: 20px 0;
+  width: min(90%, 500px);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption button i {
+  margin-right: 5px;
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption button.play-btn {
+  margin-right: 10px;
+  padding: 7px 30px;
+  transition: all 0.5s;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption button.play-btn:hover {
+  color: #000;
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption button.detail-btn {
+  padding: 7px 30px;
+  transition: all 0.5s;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.home-visual div.swiper-wrapper figure.swiper-slide figcaption button.detail-btn:hover {
+  color: #fff;
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.home-visual button.wheel-btn {
+  position: absolute;
+  z-index: 12;
+  left: calc(50% - 20px);
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+}
+.home-visual button.wheel-btn::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+.home-visual button.wheel-btn i {
+  animation: jump 0.5s infinite alternate;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
 }/*# sourceMappingURL=home-visual.css.map */

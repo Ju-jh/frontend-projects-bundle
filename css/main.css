@@ -5,8 +5,30 @@ body {
   font-style: normal;
   text-decoration: none;
   font-weight: normal;
+  background-color: var(--navy);
+  background-image: url(../img/line-pattern.png);
+  background-size: 20px;
+  animation: bgmove 100s infinite linear;
+}
+@media screen and (min-width:1000px) {
+  body {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width:1000px) {
+  body {
+    padding-top: 60px;
+  }
 }
 
+@keyframes bgmove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
 .serif {
   font-family: "Nanum Myeongjo", serif;
 }
