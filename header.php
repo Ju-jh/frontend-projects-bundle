@@ -34,6 +34,6 @@
           <i class="fa-solid fa-magnifying-glass"></i>검색하기
         </a>
       </nav>
-
+      //
     </div>
   </header>
