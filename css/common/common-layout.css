@@ -1,0 +1,178 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+  background-color: var(--navy);
+  background-image: url(../../img/line-pattern.png);
+  background-size: 20px;
+  animation: bgmove 100s infinite linear;
+}
+@media (hover: hover) {
+  body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #000;
+  }
+  body::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--sky);
+  }
+}
+@media screen and (min-width:1000px) {
+  body {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width:1000px) {
+  body {
+    padding-top: 60px;
+  }
+}
+@keyframes bgmove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+body main {
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+section.common-section {
+  padding: 30px 0;
+  margin: 0 auto;
+}
+section.common-section h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+section.common-section h2 i {
+  color: var(--sky);
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+section.common-section h2 em {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+section.common-section h2::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 10px;
+}
+
+section.movie-grid-section div.grid-container .no-data {
+  font-style: italic;
+  margin-left: 20px;
+  color: var(--green);
+  text-decoration: line-through;
+}
+section.movie-grid-section div.grid-container figure {
+  padding: 0 10px;
+  box-sizing: border-box;
+  height: auto;
+}
+section.movie-grid-section div.grid-container figure a {
+  height: 100%;
+  position: relative;
+  display: block;
+  background: var(--sky);
+  transition: all 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+}
+section.movie-grid-section div.grid-container figure a:hover {
+  position: relative;
+  z-index: 11;
+  transform: scale(1.1);
+  background: var(--green);
+}
+section.movie-grid-section div.grid-container figure a:hover div.imgbox img {
+  filter: brightness(100%);
+}
+section.movie-grid-section div.grid-container figure a div.imgbox {
+  position: relative;
+  overflow: hidden;
+}
+section.movie-grid-section div.grid-container figure a div.imgbox img {
+  width: 100%;
+  filter: brightness(70%);
+  transition: all 0.3s;
+}
+section.movie-grid-section div.grid-container figure a div.imgbox span {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  right: -40px;
+  top: -40px;
+  transform: rotate(45deg);
+}
+section.movie-grid-section div.grid-container figure a div.imgbox small {
+  position: absolute;
+  color: #fff;
+  right: 5px;
+  top: 5px;
+}
+section.movie-grid-section div.grid-container figure a figcaption {
+  padding: 10px;
+}
+section.movie-grid-section div.grid-container figure a figcaption h3,
+section.movie-grid-section div.grid-container figure a figcaption p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.movie-grid-section div.grid-container figure a figcaption h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+section.movie-grid-section div.grid-container figure a figcaption p {
+  font-size: 0.9em;
+}
+
+section.swiper-section .carousel {
+  position: relative;
+}
+@media (hover: hover) {
+  section.swiper-section .carousel:hover .next,
+  section.swiper-section .carousel:hover .prev {
+    opacity: 1;
+  }
+}
+section.swiper-section .carousel .next,
+section.swiper-section .carousel .prev {
+  display: none;
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3em;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+@media (hover: hover) {
+  section.swiper-section .carousel .next,
+  section.swiper-section .carousel .prev {
+    display: block;
+  }
+}
+section.swiper-section .carousel .next {
+  right: 0;
+}
+section.swiper-section .carousel .prev {
+  left: 0;
+}/*# sourceMappingURL=common-layout.css.map */

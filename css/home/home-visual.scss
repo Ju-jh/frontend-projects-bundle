@@ -4,6 +4,7 @@
   position: relative;
   height: min(70vh, 450px);
   overflow: hidden;
+  margin-bottom: 5vh;
   background: var(--navy);
   cursor: grab;
   &:active {
@@ -115,13 +116,13 @@
       animation: jump 0.5s infinite alternate;
     }
   }
-}
 
-@keyframes jump {
-  0% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(5px);
+  @keyframes jump {
+    0% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(5px);
+    }
   }
 }

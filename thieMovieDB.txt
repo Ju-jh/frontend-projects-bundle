@@ -1,9 +1,7 @@
-api Application Program Interface
-
 ----------------------------------------------------------------
 
 가입
-  https://wwew.themoviedb.org
+  https://www.themoviedb.org
   이메일인증 후 로그인
 
 도움말
@@ -22,7 +20,7 @@ apikey발급
 
 호출
   최신영화
-  https://api.themoviedb.org/3/movie/latest?api_key={key}&language=ko-KR&include_adult=false&sort_by=popularity.desc&page=1
+  https://api.themoviedb.org/3/movie/latest?api_key={key}&language=ko-KR&include_adult=false&page=1
   상영작
   /movie/now_playing
   인기작
@@ -37,16 +35,18 @@ apikey발급
   /movie/{movieid}
   유사영화
   /movie/{movie_id}/similar
-  영화이미지
+  영화이미지 (language옵션 미제공)
   /movie/{movie_id}/images
   영화리뷰
   /movie/{movieid}/reviews
-  출연진
+  출연진 및 제작진
   /movie/{movie_id}/credits
   인물
-  /person/person_id
+  /person/{person_id}
+  https://api.themoviedb.org/3/person/234352?api_key=72705d2fa580ec2e8c73e0e32c08b1b6&language=ko-KR
   인물 관련 영화 목록
-  /person/person_id/movie_credits
+  /person/{person_id}/movie_credits
+  https://api.themoviedb.org/3/person/234352/movie_credits?api_key=72705d2fa580ec2e8c73e0e32c08b1b6&language=ko-KR
   인물 관련 이미지
   /person/person_id/images
   키워드검색
@@ -80,7 +80,7 @@ apikey발급
   https://image.tmdb.org/t/p/w500/이미지.jpg
 
 ----------------------------------------------------------------
-장르(genres)
+장르목록
 {
   28: "액션",
   12: "모험",
@@ -102,6 +102,15 @@ apikey발급
   10752: "전쟁",
   37: "서부극",
 }
+
+----------------------------------------------------------------
+
+정렬옵션
+  &sort_by=popularity.desc
+  &sort_by=revenue.desc   
+  &sort_by=primary_release_date.asc
+  &sort_by=vote_average.asc
+  &sort_by=vote_count.desc
 
 ----------------------------------------------------------------
 
@@ -137,22 +146,22 @@ apikey발급
   },
   "budget": 100000000,
   "genres": [
-      {
-          "id": 16,
-          "name": "애니메이션"
-      },
-      {
-          "id": 28,
-          "name": "액션"
-      },
-      {
-          "id": 12,
-          "name": "모험"
-      },
-      {
-          "id": 878,
-          "name": "SF"
-      }
+    {
+        "id": 16,
+        "name": "애니메이션"
+    },
+    {
+        "id": 28,
+        "name": "액션"
+    },
+    {
+        "id": 12,
+        "name": "모험"
+    },
+    {
+        "id": 878,
+        "name": "SF"
+    }
   ],
   "homepage": "",
   "id": 569094,
@@ -163,36 +172,36 @@ apikey발급
   "popularity": 2501.039,
   "poster_path": "/zG9TYiHt0fdaJiWuNEhFrfKzwoi.jpg",
   "production_companies": [
-      {
-          "id": 5,
-          "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
-          "name": "Columbia Pictures",
-          "origin_country": "US"
-      },
-      {
-          "id": 2251,
-          "logo_path": "/5ilV5mH3gxTEU7p5wjxptHvXkyr.png",
-          "name": "Sony Pictures Animation",
-          "origin_country": "US"
-      },
-      {
-          "id": 77973,
-          "logo_path": "/9y5lW86HnxKUZOFencYk3TIIRCM.png",
-          "name": "Lord Miller",
-          "origin_country": "US"
-      },
-      {
-          "id": 84041,
-          "logo_path": "/nw4kyc29QRpNtFbdsBHkRSFavvt.png",
-          "name": "Pascal Pictures",
-          "origin_country": "US"
-      },
-      {
-          "id": 14439,
-          "logo_path": null,
-          "name": "Arad Productions",
-          "origin_country": "US"
-      }
+    {
+        "id": 5,
+        "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+        "name": "Columbia Pictures",
+        "origin_country": "US"
+    },
+    {
+        "id": 2251,
+        "logo_path": "/5ilV5mH3gxTEU7p5wjxptHvXkyr.png",
+        "name": "Sony Pictures Animation",
+        "origin_country": "US"
+    },
+    {
+        "id": 77973,
+        "logo_path": "/9y5lW86HnxKUZOFencYk3TIIRCM.png",
+        "name": "Lord Miller",
+        "origin_country": "US"
+    },
+    {
+        "id": 84041,
+        "logo_path": "/nw4kyc29QRpNtFbdsBHkRSFavvt.png",
+        "name": "Pascal Pictures",
+        "origin_country": "US"
+    },
+    {
+        "id": 14439,
+        "logo_path": null,
+        "name": "Arad Productions",
+        "origin_country": "US"
+    }
   ],
   "production_countries": [
       {
@@ -288,6 +297,8 @@ apikey발급
         },{},{}...
     ]
 }
+
+------------------------------------------------------------------
 
 
 

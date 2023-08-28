@@ -18,8 +18,8 @@ export const setSwiper = (el, sec = false, breakpoint = false) => {
     loop: true,
 
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.next',
+      prevEl: '.prev',
     }, //navigation
 
     pagination: {

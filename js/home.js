@@ -1,5 +1,10 @@
 import { en, ko, options, imgPaths } from './api-data.js';
-import { getMovie, getMovies, getVideos } from './api-functions.js';
+import {
+  displayMovies,
+  getMovie,
+  getMovies,
+  getVideos,
+} from './api-functions.js';
 import { qySel, qySelAll, setSwiper } from './functions.js';
 import { videoResize } from './video-modal.js';
 
@@ -65,4 +70,23 @@ const setVisual = () => {
   });
 };
 
+const setHomeSection = (option, section) => {
+  return new Promise(async (resolve) => {
+    const moviesData = await getMovies(option);
+    let movies = moviesData.results.slice(0, 15);
+    console.log(movies);
+    await displayMovies(
+      movies,
+      `${section} .carousel .swiper-wrapper`,
+      'swiper-slide'
+    );
+    setSwiper(`${section} .carousel`, false, true);
+    resolve();
+  });
+};
+
 await setVisual();
+await setHomeSection(options.popular, '.popular-section');
+await setHomeSection(options.upcoming, '.upcoming-section');
+await setHomeSection(options.rated, '.rated-section');
+await setHomeSection(options.trend, '.trend-section');

@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="./css/home/home-visual.css">
   <link rel="stylesheet" href="./css/header/header.css">
   <link rel="stylesheet" href="./css/common/video-modal.css">
+  <link rel="stylesheet" href="./css/common/common-layout.css">
+  <link rel="stylesheet" href="./css/footer/footer.css">
+  <link rel="stylesheet" href="./css/home/home.css">
   <script src="https://kit.fontawesome.com/40d55bb55c.js" crossorigin="anonymous"></script><!-- 변경할것 -->
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <title>tmdb</title>
@@ -34,6 +37,5 @@
           <i class="fa-solid fa-magnifying-glass"></i>검색하기
         </a>
       </nav>
-      //
     </div>
   </header>

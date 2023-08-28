@@ -1,0 +1,170 @@
+@use '../mixin' as m;
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+  background-color: var(--navy);
+  background-image: url(../../img/line-pattern.png);
+  background-size: 20px;
+  animation: bgmove 100s infinite linear;
+  @include m.scrollbar;
+  @media #{m.$min-lg} {
+    padding-top: 80px;
+  }
+  @media #{m.$max-lg} {
+    padding-top: 60px;
+  }
+
+  @keyframes bgmove {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  main {
+    min-height: 50vh;
+    overflow: hidden;
+  }
+}
+
+section.common-section {
+  padding: 30px 0;
+  margin: 0 auto;
+  h2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    i {
+      color: var(--sky);
+      margin-right: 10px;
+      font-size: 1.5em;
+    }
+    em {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+    &::after {
+      content: '';
+      flex: 1;
+      border-top: 1px solid rgba(#fff, 0.3);
+      margin-left: 10px;
+    }
+  }
+}
+
+section.movie-grid-section {
+  div.grid-container {
+    .no-data {
+      font-style: italic;
+      margin-left: 20px;
+      color: var(--green);
+      text-decoration: line-through;
+    }
+
+    figure {
+      padding: 0 10px;
+      box-sizing: border-box;
+      height: auto;
+
+      a {
+        height: 100%;
+        position: relative;
+        display: block;
+        background: var(--sky);
+        transition: all 0.3s;
+        border-radius: 10px;
+        overflow: hidden;
+        &:hover {
+          position: relative;
+          z-index: 11;
+          transform: scale(1.1);
+          background: var(--green);
+          div.imgbox {
+            img {
+              filter: brightness(100%);
+            }
+          }
+        }
+        div.imgbox {
+          position: relative;
+          overflow: hidden;
+          img {
+            width: 100%;
+            filter: brightness(70%);
+            transition: all 0.3s;
+          }
+          span {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            right: -40px;
+            top: -40px;
+            transform: rotate(45deg);
+          }
+          small {
+            position: absolute;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+          }
+        }
+
+        figcaption {
+          padding: 10px;
+          h3,
+          p {
+            @include m.ellipsis;
+          }
+          h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+          }
+          p {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.swiper-section {
+  .carousel {
+    &:hover {
+      @media (hover: hover) {
+        .next,
+        .prev {
+          opacity: 1;
+        }
+      }
+    }
+    position: relative;
+    .next,
+    .prev {
+      display: none;
+      @media (hover: hover) {
+        display: block;
+      }
+      position: absolute;
+      z-index: 12;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .next {
+      right: 0;
+    }
+    .prev {
+      left: 0;
+    }
+  }
+}

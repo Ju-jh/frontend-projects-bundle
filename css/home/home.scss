@@ -1,0 +1,8 @@
+@use '../mixin' as m;
+
+main.home-content {
+  section.common-section {
+    width: min(90%, 1600px);
+    max-width: 1600px;
+  }
+}
