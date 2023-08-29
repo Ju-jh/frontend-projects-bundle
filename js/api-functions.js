@@ -91,3 +91,14 @@ export const displayMovies = (data, container, gridClassName = '') => {
     resolve();
   }); //Promise
 }; //displayMovies
+
+export const getCredits = (movieId, lang = ko) => {
+  return new Promise(async (resolve) => {
+    const result = await fetch(
+      `${baseUrl}/movie/${movieId}/credits${apiKey}${lang}`
+    );
+    const data = await result.json();
+
+    resolve(data);
+  });
+};
