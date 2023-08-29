@@ -35,6 +35,14 @@ export const getVideos = (movieId, lang = ko) => {
   });
 }; //getVideos
 
+export const getImages = (movieId) => {
+  return new Promise(async (resolve) => {
+    let result = await fetch(`${baseUrl}/movie/${movieId}/images${apiKey}`);
+    let data = await result.json();
+    resolve(data);
+  });
+};
+
 export const displayMovies = (data, container, gridClassName = '') => {
   if (data.length === 0) {
     qySel(container).innerHTML =

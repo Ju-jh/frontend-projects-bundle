@@ -147,6 +147,23 @@ section.movie-grid-section div.grid-container figure a figcaption p {
 section.swiper-section .carousel {
   position: relative;
 }
+section.swiper-section .carousel::before, section.swiper-section .carousel::after {
+  content: "";
+  position: absolute;
+  z-index: 13;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(2px) brightness(80%);
+          backdrop-filter: blur(2px) brightness(80%);
+}
+section.swiper-section .carousel::before {
+  right: 100%;
+}
+section.swiper-section .carousel::after {
+  left: 100%;
+}
 @media (hover: hover) {
   section.swiper-section .carousel:hover .next,
   section.swiper-section .carousel:hover .prev {

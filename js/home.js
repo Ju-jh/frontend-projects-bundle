@@ -5,8 +5,7 @@ import {
   getMovies,
   getVideos,
 } from './api-functions.js';
-import { qySel, qySelAll, setSwiper } from './functions.js';
-import { videoResize } from './video-modal.js';
+import { qySel, qySelAll, setSwiper, videoResize } from './functions.js';
 
 const setVisual = () => {
   return new Promise(async (resovle) => {
@@ -60,7 +59,7 @@ const setVisual = () => {
 
     qySelAll('.home-visual .detail-btn').forEach((button) => {
       button.addEventListener('click', (e) => {
-        location.href = `../detail.php?id=${e.target.value}`;
+        location.href = `./detail.php?id=${e.target.value}`;
       });
     }); //detail-btn 'click'
 
@@ -74,7 +73,6 @@ const setHomeSection = (option, section) => {
   return new Promise(async (resolve) => {
     const moviesData = await getMovies(option);
     let movies = moviesData.results.slice(0, 15);
-    console.log(movies);
     await displayMovies(
       movies,
       `${section} .carousel .swiper-wrapper`,
@@ -90,3 +88,36 @@ await setHomeSection(options.popular, '.popular-section');
 await setHomeSection(options.upcoming, '.upcoming-section');
 await setHomeSection(options.rated, '.rated-section');
 await setHomeSection(options.trend, '.trend-section');
+
+const scrollToSection = () => {
+  let offsetTop =
+    qySel('.popular-section').getBoundingClientRect().y + window.scrollY;
+  let headerH = matchMedia('screen and (min-width:1000px)').matches ? 80 : 60;
+  let scrollTargetY = offsetTop - headerH;
+  window.scrollTo({
+    top: scrollTargetY,
+    behavior: 'smooth',
+  });
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
+qySel('.home-visual').addEventListener(
+  'mousewheel',
+  (e) => {
+    e.preventDefault();
+    let delta = e.wheelDelta < 0 ? 1 : -1;
+    if (delta === -1) return false;
+    scrollToSection();
+  },
+  { passive: false }
+);
+
+qySel('.wheel-btn').addEventListener('click', (e) => {
+  scrollToSection();
+});

@@ -74,7 +74,7 @@ $md: 'screen and (min-width:500px) and (max-width:1000px)';
 }
 
 @mixin box-shadow {
-  box-shadow: 0 0 100px rgba(#000, 0.5);
+  box-shadow: 0 0 20px rgba(#000, 0.7);
 }
 
 @mixin pos-center {

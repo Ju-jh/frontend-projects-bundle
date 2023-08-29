@@ -1,3 +1,5 @@
+import { imgPaths } from './api-data.js';
+
 export const qySel = (el) => {
   return document.querySelector(el);
 };
@@ -55,3 +57,47 @@ export const setSwiper = (el, sec = false, breakpoint = false) => {
     }, //breakpoints
   }); //new Swiper
 }; //setSwiper
+
+export const videoResize = () => {
+  let videoWidth = qySel('.youtube-ratio').clientWidth;
+  let videoHeight = qySel('.youtube-ratio').clientHeight;
+  qySel('.video-modal iframe').style.width = `${videoWidth}px`;
+  qySel('.video-modal iframe').style.height = `${videoHeight}px`;
+};
+
+export const setSlide = (images) => {
+  if (images.length < 2) {
+    for (let i = 1; i <= 4; i++) {
+      qySel('.slide').insertAdjacentHTML(
+        'beforeend',
+        `
+        <img src='./img/film${i}.jpg' class="slide-img${i}" alt>
+      `
+      );
+    }
+  } else {
+    images.forEach((imgInfo, i) => {
+      let { file_path } = imgInfo;
+      let imgPath = `${imgPaths.original}${file_path}`;
+      qySel('.slide').insertAdjacentHTML(
+        'beforeend',
+        `
+        <img src='${imgPath}' class="slide-img${i + 1}" alt>
+      `
+      );
+    });
+  }
+
+  let n = 1;
+  setTimeout(() => {
+    qySel('.slide-img1').classList.add('active');
+  }, 10);
+  setInterval(() => {
+    n++;
+    if (n > qySelAll('.slide img').length) n = 1;
+    qySelAll('.slide img').forEach((img) => {
+      img.classList.remove('active');
+    });
+    qySel(`.slide-img${n}`).classList.add('active');
+  }, 5000);
+};

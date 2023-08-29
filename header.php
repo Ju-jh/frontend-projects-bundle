@@ -16,8 +16,10 @@
   <link rel="stylesheet" href="./css/common/common-layout.css">
   <link rel="stylesheet" href="./css/footer/footer.css">
   <link rel="stylesheet" href="./css/home/home.css">
+  <link rel="stylesheet" href="./css/common/slide.css">
   <script src="https://kit.fontawesome.com/40d55bb55c.js" crossorigin="anonymous"></script><!-- 변경할것 -->
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="./js/common.js" type="module"></script>
   <title>tmdb</title>
 </head>
 
@@ -25,8 +27,8 @@
   <header>
     <div class="center">
       <h1>
-        <a href="" class="index php">
-          <span class="hidden">영화정보사이트</span>
+        <a href="index.php">
+          <span class=" hidden">영화정보사이트</span>
           <img src="./img/logo.png" alt="">
           <img src=" ./img/logo-text.png" alt="">
         </a>
@@ -39,3 +41,7 @@
       </nav>
     </div>
   </header>
+
+  <button class="top-btn">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>

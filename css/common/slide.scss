@@ -1,0 +1,31 @@
+@use '../mixin' as m;
+
+.slide {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-imgage: url(../../img/mask.png);
+  -webkit-mask-size: 100% 100%;
+  mask-image: url(../../img/mask.png);
+  mask-size: 100% 100%;
+  @media #{m.$min-lg} {
+    height: 35vh;
+    filter: brightness(40%);
+  }
+  @media #{m.$max-lg} {
+    height: 50vh;
+    filter: brightness(70%);
+  }
+  img {
+    position: absolute;
+    transform: scale(1.2);
+    opacity: 0;
+    @include m.cover;
+    transition: transform 15s linear, opactiy 1s;
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
