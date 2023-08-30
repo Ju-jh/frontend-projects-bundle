@@ -64,6 +64,17 @@
     </div>
   </section>
 
+  <section class="common-section scroll-section img-section">
+    <h2>
+      <i class="fa-solid fa-image"></i>
+      <em>관련 이미지</em>
+    </h2>
+
+    <div class="grid-container">
+      <!-- 동적 추가 -->
+    </div>
+  </section>
+
   <section class="common-section scroll-section video-section">
     <h2>
       <i class="fa-solid fa-video"></i>

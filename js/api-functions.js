@@ -65,6 +65,8 @@ export const displayMovies = (data, container, gridClassName = '') => {
       let { id, poster_path, title, genre_ids, vote_average, release_date } =
         movie;
 
+      let vote_averages = vote_average.toFixed(1);
+
       let imgPath = poster_path
         ? `${imgPaths.w500}${poster_path}`
         : './img/no-image.jpg';
@@ -87,7 +89,7 @@ export const displayMovies = (data, container, gridClassName = '') => {
               <div class="imgbox">
                 <img src="${imgPath}" alt="">
                 <span style="background:${gradeColor}"></span>
-                <small>${vote_average}</small>
+                <small>${vote_averages}</small>
               </div>
               <figcaption>
                 <h3>${title}</h3>
@@ -118,6 +120,7 @@ export const displayVideos = (data, container) => {
   if (data.length === 0) {
     qySel(container).innerHTML =
       '<p class="no-data">관련 영상이 존재하지 않습니다</p>';
+    return false;
   }
   data.forEach((video) => {
     let { key } = video;
@@ -143,3 +146,26 @@ export const displayVideos = (data, container) => {
     });
   });
 }; //displayVideos
+
+export const displayImages = (data, container) => {
+  if (data.length === 0) {
+    qySel(container).innerHTML =
+      '<p class="no-data">관련 이미지가 존재하지 않습니다</p>';
+    return false;
+  }
+  data.forEach((img) => {
+    let { file_path } = img;
+    let imgPathOriginal = `${imgPaths.original}${file_path}`;
+    let imgPathW500 = `${imgPaths.w500}${file_path}`;
+    qySel(container).insertAdjacentHTML(
+      'beforeend',
+      `
+      <a class="viewbox-btn" href="${imgPathOriginal}">
+        <img src="${imgPathW500}" alt>
+      </a>
+    `
+    );
+  });
+
+  $('.viewbox-btn').viewbox();
+};

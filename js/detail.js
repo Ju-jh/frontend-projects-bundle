@@ -1,5 +1,6 @@
 import { gradeColors, imgPaths } from './api-data.js';
 import {
+  displayImages,
   displayMovies,
   displayVideos,
   getCredits,
@@ -16,6 +17,7 @@ let id = params.get('id');
 let imageData = await getImages(id);
 let { backdrops, posters } = imageData;
 backdrops = backdrops.slice(0, 15);
+
 let images = backdrops.slice(0, 15);
 let posterPath = posters.length
   ? `${imgPaths.w500}${posters[0].file_path}`
@@ -114,5 +116,6 @@ const setSimilarSection = () => {
 };
 
 displayVideos(videos, '.video-section .grid-container');
+displayImages(images, '.img-section .grid-container');
 
 await setSimilarSection();
