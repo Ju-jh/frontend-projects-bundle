@@ -26,7 +26,7 @@ apikey발급
   인기작
   /movie/popular
   트렌딩
-  /trending/all/week
+  /trending/movie/week
   평점순
   /movie/top_rated
   개봉예정작
@@ -41,12 +41,10 @@ apikey발급
   /movie/{movieid}/reviews
   출연진 및 제작진
   /movie/{movie_id}/credits
-  인물
+  인물상세
   /person/{person_id}
-  https://api.themoviedb.org/3/person/234352?api_key=72705d2fa580ec2e8c73e0e32c08b1b6&language=ko-KR
   인물 관련 영화 목록
   /person/{person_id}/movie_credits
-  https://api.themoviedb.org/3/person/234352/movie_credits?api_key=72705d2fa580ec2e8c73e0e32c08b1b6&language=ko-KR
   인물 관련 이미지
   /person/person_id/images
   키워드검색
@@ -58,8 +56,8 @@ apikey발급
   인물검색
   /search/person?{apikey}&{lang}&query=bong+jun+ho
   장르별검색
-    · 액션,모험 장르 예시
-      https://api.themoviedb.org/3/genre/movie/list?api_key={apikey}&language=ko-KR&with_genres=28,35
+    · 액션,모험 장르 예시 (language옵션 미제공)
+      https://api.themoviedb.org/3/discover/movie/list?api_key={apikey}&with_genres=28,35
 
 ----------------------------------------------------------------
 

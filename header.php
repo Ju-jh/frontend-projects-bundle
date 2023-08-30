@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="./css/footer/footer.css">
   <link rel="stylesheet" href="./css/home/home.css">
   <link rel="stylesheet" href="./css/common/slide.css">
+  <link rel="stylesheet" href="./css/detail/detail-info.css">
+  <link rel="stylesheet" href="./css/detail/detail-section.css">
   <script src="https://kit.fontawesome.com/40d55bb55c.js" crossorigin="anonymous"></script><!-- 변경할것 -->
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="./js/common.js" type="module"></script>

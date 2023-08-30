@@ -1,0 +1,115 @@
+main.detail-content {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 30vh auto 0 auto;
+}
+
+section.detail-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (min-width:1000px) {
+  section.detail-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width:1000px) {
+  section.detail-section img.poster {
+    width: 25%;
+  }
+}
+@media screen and (max-width:1000px) {
+  section.detail-section img.poster {
+    display: none;
+  }
+}
+@media screen and (min-width:1000px) {
+  section.detail-section div.detail-info {
+    width: 70%;
+  }
+}
+section.detail-section div.detail-info h2 {
+  margin-bottom: 20px;
+  font-size: min(10vw, 5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.detail-section div.detail-info ul.meta {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+section.detail-section div.detail-info ul.meta li:not(:nth-child(2) ~ *)::after {
+  content: "/";
+  margin: 0 5px;
+}
+section.detail-section div.detail-info ul.meta li .logo-small {
+  display: inline-block;
+  margin-right: 5px;
+  width: 25px;
+  transform: translateY(5px);
+}
+section.detail-section div.detail-info ul.meta li i {
+  font-size: 0.8em;
+}
+section.detail-section div.detail-info ul.meta li em {
+  font-size: 1.1em;
+}
+section.detail-section div.detail-info ul.meta li em.vote-average {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: 5px;
+  height: 23px;
+  line-height: 22px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+section.detail-section div.detail-info ul.meta li small {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.meta li.genres {
+  width: 100%;
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.detail-section div.detail-info p.overview {
+  margin-bottom: 20px;
+}
+section.detail-section div.detail-info ul.info {
+  padding: 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+section.detail-section div.detail-info ul.info li:not(:last-child) {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+}
+section.detail-section div.detail-info ul.info li {
+  display: flex;
+  align-items: center;
+}
+section.detail-section div.detail-info ul.info i {
+  font-size: 0.8em;
+  margin-right: 3px;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.info small {
+  font-size: 0.9em;
+  width: 50px;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.info em {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=detail-info.css.map */

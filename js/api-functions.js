@@ -7,7 +7,7 @@ import {
   ko,
   options,
 } from './api-data.js';
-import { qySel } from './functions.js';
+import { qySel, qySelAll, videoResize } from './functions.js';
 
 export const getMovies = (option, lang = ko) => {
   return new Promise(async (resolve) => {
@@ -41,7 +41,18 @@ export const getImages = (movieId) => {
     let data = await result.json();
     resolve(data);
   });
-};
+}; //getImages
+
+export const getSimilarMovies = (movieId, lang = ko) => {
+  return new Promise(async (resolve) => {
+    let result = await fetch(
+      `${baseUrl}/movie/${movieId}/similar${apiKey}${lang}
+`
+    );
+    let data = await result.json();
+    resolve(data);
+  });
+}; //getSimilarMovies
 
 export const displayMovies = (data, container, gridClassName = '') => {
   if (data.length === 0) {
@@ -101,4 +112,34 @@ export const getCredits = (movieId, lang = ko) => {
 
     resolve(data);
   });
-};
+}; //getCredits
+
+export const displayVideos = (data, container) => {
+  if (data.length === 0) {
+    qySel(container).innerHTML =
+      '<p class="no-data">관련 영상이 존재하지 않습니다</p>';
+  }
+  data.forEach((video) => {
+    let { key } = video;
+    qySel(container).insertAdjacentHTML(
+      'beforeend',
+      `
+      <button value="${key}">
+      <img src="https://img.youtube.com/vi/${key}/mqdefault.jpg" alt>
+      </button>
+
+    `
+    );
+  });
+
+  qySelAll(`${container} button`).forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      qySel('.video-modal').style.display = 'block';
+      let youtubeId = e.currentTarget.value;
+      qySel(
+        '.video-modal iframe'
+      ).src = `http://www.youtube.com/embed/${youtubeId}?playlist=${youtubeId}&autoplay=1&loop=1&mute=1&playsinline=1`;
+      videoResize();
+    });
+  });
+}; //displayVideos

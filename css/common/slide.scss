@@ -10,7 +10,7 @@
   mask-image: url(../../img/mask.png);
   mask-size: 100% 100%;
   @media #{m.$min-lg} {
-    height: 35vh;
+    height: 55vh;
     filter: brightness(40%);
   }
   @media #{m.$max-lg} {

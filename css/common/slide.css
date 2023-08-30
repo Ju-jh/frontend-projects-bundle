@@ -11,7 +11,7 @@
 }
 @media screen and (min-width:1000px) {
   .slide {
-    height: 35vh;
+    height: 55vh;
     filter: brightness(40%);
   }
 }
