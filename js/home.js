@@ -100,13 +100,6 @@ const scrollToSection = () => {
   });
 };
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
-
 qySel('.home-visual').addEventListener(
   'mousewheel',
   (e) => {
@@ -119,5 +112,5 @@ qySel('.home-visual').addEventListener(
 );
 
 qySel('.wheel-btn').addEventListener('click', (e) => {
-  scrollToTop();
+  scrollToSection();
 });
