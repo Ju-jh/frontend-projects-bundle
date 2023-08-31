@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/home/home-visual.css">
   <link rel="stylesheet" href="./css/header/header.css">
-  <link rel="stylesheet" href="./css/common/video-modal.css">
+  <link rel="stylesheet" href="./css/common/modal.css">
   <link rel="stylesheet" href="./css/common/common-layout.css">
   <link rel="stylesheet" href="./css/footer/footer.css">
   <link rel="stylesheet" href="./css/home/home.css">

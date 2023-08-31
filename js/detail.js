@@ -2,6 +2,7 @@ import { gradeColors, imgPaths } from './api-data.js';
 import {
   displayImages,
   displayMovies,
+  displayPeople,
   displayVideos,
   getCredits,
   getImages,
@@ -117,5 +118,6 @@ const setSimilarSection = () => {
 
 displayVideos(videos, '.video-section .grid-container');
 displayImages(images, '.img-section .grid-container');
+displayPeople(cast, '.people-section .grid-container');
 
 await setSimilarSection();

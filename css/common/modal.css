@@ -1,0 +1,156 @@
+section.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+section.video-modal img.youtube-ratio {
+  max-width: 90%;
+  max-height: 90%;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+section.video-modal iframe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section.person-modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.85);
+}
+@media (hover: hover) {
+  section.person-modal::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #000;
+  }
+  section.person-modal::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+  }
+  section.person-modal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--sky);
+  }
+}
+section.person-modal div.center {
+  width: min(90%, 600px);
+  margin: 10vh auto;
+  text-align: center;
+}
+section.person-modal div.center img.person-photo {
+  width: min(60%, 300px);
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: 5px solid #eee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+section.person-modal div.center h4 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  text-align: left;
+  color: var(--green);
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  border-bottom: 1px solid var(--green);
+}
+section.person-modal div.center li {
+  padding: 5px;
+}
+section.person-modal div.center ul.profile {
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(238, 238, 238, 0.1);
+}
+section.person-modal div.center ul.profile li:not(:last-child) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px dotted rgba(238, 238, 238, 0.5);
+}
+section.person-modal div.center ul.profile li small {
+  opacity: 0.7;
+  margin-right: 10px;
+}
+section.person-modal div.center ul.profile li em {
+  font-style: italic;
+}
+section.person-modal div.center ul.profile.active {
+  overflow: hidden;
+}
+section.person-modal div.center ul.profile.active li:last-child {
+  height: 8vh;
+}
+section.person-modal div.center .more {
+  margin-bottom: 30px;
+  background: rgba(238, 238, 238, 0.3);
+  width: 100%;
+  padding: 3px 0;
+}
+section.person-modal div.center .more .open {
+  display: none;
+}
+section.person-modal div.center .more.active .close {
+  display: none;
+}
+section.person-modal div.center .more.active .open {
+  display: inline;
+}
+section.person-modal div.center ul.filmography {
+  margin-bottom: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(238, 238, 238, 0.1);
+}
+section.person-modal div.center ul.filmography li:not(:last-child) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px dotted rgba(238, 238, 238, 0.5);
+}
+section.person-modal div.center ul.filmography li time {
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-style: italic;
+}
+section.person-modal div.center ul.filmography li a em {
+  font-size: 1.1em;
+}
+section.person-modal div.center ul.filmography li a small {
+  font-style: italic;
+}
+section.person-modal div.center ul.filmography li a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+button.modal-close-btn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  font-size: 1.5em;
+  opacity: 0.7;
+}
+button.modal-close-btn:hover {
+  opacity: 1;
+}/*# sourceMappingURL=modal.css.map */

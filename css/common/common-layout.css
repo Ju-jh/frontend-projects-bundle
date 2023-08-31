@@ -246,7 +246,6 @@ section.scroll-section .grid-container {
 }
 section.scroll-section .grid-container > * {
   flex-shrink: 0;
-  width: 250px;
   overflow: hidden;
   margin-right: 20px;
   box-sizing: border-box;
@@ -262,7 +261,7 @@ section.scroll-section .grid-container > * img {
   width: 100%;
 }
 
-section.video-section .grid-container a {
+section.video-section .grid-container button {
   display: block;
   width: 250px;
 }
@@ -270,4 +269,34 @@ section.video-section .grid-container a {
 section.img-section .grid-container a {
   display: block;
   width: 250px;
+}
+
+section.people-section figure {
+  width: 170px;
+}
+section.people-section figure:hover figcaption {
+  background: var(--sky);
+}
+section.people-section figure:hover figcaption em {
+  color: var(--navy);
+}
+section.people-section figure figcaption {
+  position: relative;
+  background: var(--navy);
+  padding: 10px;
+  transition: all 0.3s;
+}
+section.people-section figure figcaption em {
+  display: block;
+  color: var(--green);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+section.people-section figure figcaption b {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }/*# sourceMappingURL=common-layout.css.map */

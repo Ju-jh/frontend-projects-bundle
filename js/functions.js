@@ -109,3 +109,13 @@ export const sortArray = (arr, sortby, asc) => {
     else return 0;
   });
 };
+
+export const showModal = (modal) => {
+  qySel(modal).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+};
+
+export const closeModal = (modal) => {
+  qySel(modal).style.display = 'none';
+  document.body.style.overflow = 'auto';
+};

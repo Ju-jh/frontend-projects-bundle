@@ -216,7 +216,6 @@ section.scroll-section {
     padding-bottom: 20px;
     > * {
       flex-shrink: 0;
-      width: 250px;
       overflow: hidden;
       margin-right: 20px;
       box-sizing: border-box;
@@ -236,7 +235,7 @@ section.scroll-section {
 
 section.video-section {
   .grid-container {
-    a {
+    button {
       display: block;
       width: 250px;
     }
@@ -248,6 +247,34 @@ section.img-section {
     a {
       display: block;
       width: 250px;
+    }
+  }
+}
+
+section.people-section {
+  figure {
+    width: 170px;
+    &:hover figcaption {
+      background: var(--sky);
+      em {
+        color: var(--navy);
+      }
+    }
+    figcaption {
+      position: relative;
+      background: var(--navy);
+      padding: 10px;
+      transition: all 0.3s;
+      em {
+        display: block;
+        color: var(--green);
+        @include m.ellipsis;
+        font-weight: 600;
+      }
+      b {
+        display: block;
+        @include m.ellipsis;
+      }
     }
   }
 }

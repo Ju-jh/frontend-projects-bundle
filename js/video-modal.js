@@ -1,9 +1,9 @@
-import { qySel, videoResize } from './functions.js';
+import { closeModal, qySel, videoResize } from './functions.js';
 
-qySel('.video-modal .close').addEventListener('click', (e) => {
+qySel('.video-modal .modal-close-btn').addEventListener('click', (e) => {
   qySel('.video-modal iframe').src = '';
-  qySel('.video-modal').style.display = 'none';
-});
+  closeModal('.video-modal');
+}); //click
 
 window.addEventListener('resize', () => {
   videoResize();

@@ -11,7 +11,7 @@
       </p>
       <p class="copy">
         <i>COPYRIGHT</i>
-        <i>© example#@naver.com</i>
+        <i>© example@example.com</i>
         <i>ALL RIGHT RESERVED</i>
       </p>
     </div>

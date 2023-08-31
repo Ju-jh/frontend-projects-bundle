@@ -7,11 +7,19 @@ import {
   ko,
   options,
 } from './api-data.js';
-import { qySel, qySelAll, videoResize } from './functions.js';
+import {
+  qySel,
+  qySelAll,
+  showModal,
+  sortArray,
+  videoResize,
+} from './functions.js';
 
 export const getMovies = (option, lang = ko) => {
   return new Promise(async (resolve) => {
-    let result = await fetch(`${baseUrl}${option}${apiKey}${lang}`);
+    let result = await fetch(
+      `${baseUrl}${option}${apiKey}${lang}&include_adult=false`
+    );
     let data = await result.json();
     resolve(data);
   }); //promise
@@ -19,7 +27,9 @@ export const getMovies = (option, lang = ko) => {
 
 export const getMovie = (movieId, lang = ko) => {
   return new Promise(async (resolve) => {
-    let result = await fetch(`${baseUrl}/movie/${movieId}${apiKey}${lang}`);
+    let result = await fetch(
+      `${baseUrl}/movie/${movieId}${apiKey}${lang}&include_adult=false`
+    );
     let data = await result.json();
     resolve(data);
   });
@@ -28,7 +38,7 @@ export const getMovie = (movieId, lang = ko) => {
 export const getVideos = (movieId, lang = ko) => {
   return new Promise(async (resolve) => {
     let result = await fetch(
-      `${baseUrl}/movie/${movieId}/videos${apiKey}${lang}`
+      `${baseUrl}/movie/${movieId}/videos${apiKey}${lang}&include_adult=false`
     );
     let data = await result.json();
     resolve(data);
@@ -37,7 +47,9 @@ export const getVideos = (movieId, lang = ko) => {
 
 export const getImages = (movieId) => {
   return new Promise(async (resolve) => {
-    let result = await fetch(`${baseUrl}/movie/${movieId}/images${apiKey}`);
+    let result = await fetch(
+      `${baseUrl}/movie/${movieId}/images${apiKey}&include_adult=false`
+    );
     let data = await result.json();
     resolve(data);
   });
@@ -46,7 +58,7 @@ export const getImages = (movieId) => {
 export const getSimilarMovies = (movieId, lang = ko) => {
   return new Promise(async (resolve) => {
     let result = await fetch(
-      `${baseUrl}/movie/${movieId}/similar${apiKey}${lang}
+      `${baseUrl}/movie/${movieId}/similar${apiKey}${lang}&include_adult=false
 `
     );
     let data = await result.json();
@@ -137,7 +149,7 @@ export const displayVideos = (data, container) => {
 
   qySelAll(`${container} button`).forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      qySel('.video-modal').style.display = 'block';
+      showModal('.video-modal');
       let youtubeId = e.currentTarget.value;
       qySel(
         '.video-modal iframe'
@@ -168,4 +180,120 @@ export const displayImages = (data, container) => {
   });
 
   $('.viewbox-btn').viewbox();
+};
+
+export const displayPeople = (data, container) => {
+  if (data.length === 0) {
+    qySel(container).innerHTML =
+      '<p class="no-data">관련 이미지가 존재하지 않습니다.</p>';
+    return false;
+  }
+  data.forEach((person) => {
+    let { id, name, character, profile_path } = person;
+    let photo = profile_path
+      ? `${imgPaths.w500}${profile_path}`
+      : './img/no-image.jpg';
+    qySel(container).insertAdjacentHTML(
+      'beforeend',
+      `
+              <figure>
+                  <a href="${id}">
+                  <img src="${photo}" alt="">
+                  <figcaption>
+                  <em>${name}</em>
+                  <b>${character}</b>
+                  </figcaption>
+                  </a>
+              </figure>
+          `
+    );
+  });
+
+  qySelAll(`${container} a`).forEach((anchor) => {
+    anchor.addEventListener('click', async (e) => {
+      e.preventDefault();
+      let id = e.currentTarget.getAttribute('href');
+      let profile = await getProfile(id);
+      let filmography = await getFilmography(id);
+      displayPerson(profile);
+      displayFilmography(filmography);
+      showModal('.person-modal');
+    });
+  });
+};
+
+export const getProfile = (personId, lang = ko) => {
+  return new Promise(async (resolve) => {
+    let result = await fetch(`${baseUrl}/person/${personId}${apiKey}`);
+    let data = await result.json();
+    resolve(data);
+  });
+};
+
+export const displayPerson = (profileData, en) => {
+  let {
+    profile_path,
+    name,
+    birthday,
+    deathday,
+    known_for_department,
+    place_of_birth,
+    biography,
+  } = profileData;
+  let photoPath = profile_path
+    ? `${imgPaths.w500}${profile_path}`
+    : `.img/no-image.jpg`;
+
+  name = name ? name : '관련 정보가 없습니다';
+  known_for_department = known_for_department
+    ? known_for_department
+    : '관련 정보가 없습니다';
+  place_of_birth = place_of_birth ? place_of_birth : '관련 정보가 없습니다';
+  biography = biography ? biography : '관련 정보가 없습니다';
+  deathday = deathday ? deathday : ' ';
+  birthday = birthday ? `${birthday} ~ ${deathday}` : '관련 정보가 없습니다';
+
+  qySel('.person-photo').src = photoPath;
+  qySel('.person-name').innerText = name;
+  qySel('.person-job').innerText = known_for_department;
+  qySel('.person-life').innerText = birthday;
+  qySel('.person-place').innerText = place_of_birth;
+  qySel('.person-biography').innerText = biography;
+
+  // =()?:'관련 정보가 없습니다'
+};
+
+export const getFilmography = (personId, lang = ko) => {
+  return new Promise(async (resolve) => {
+    const result = await fetch(
+      `${baseUrl}/person/${personId}/movie_credits${apiKey}${lang}`
+    );
+    const data = result.json();
+    resolve(data);
+  });
+};
+
+export const displayFilmography = (filmographyData) => {
+  let { cast, crew } = filmographyData;
+  let filmography = [...cast, ...crew];
+  sortArray(filmography, 'popularity', -1);
+  filmography = filmography.slice(0, 20);
+  qySel('.filmography').innerHTML = '';
+  filmography.forEach((movie) => {
+    let { id, release_date, title, job } = movie;
+    job = job ? job : 'acting';
+    qySel('ul.filmography').insertAdjacentHTML(
+      'beforeend',
+      `
+    <li>
+      <time>${release_date}</time>
+      <a href="./detail.php?id=${id}">
+        <em>${title}</em>
+        <small>(${job})</small>
+      </a>
+    </li>
+    `
+    );
+  });
+  console.log(filmography);
 };
