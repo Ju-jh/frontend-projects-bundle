@@ -49,25 +49,50 @@ section.detail-section div.detail-info ul.meta li:not(:nth-child(2) ~ *)::after 
   content: "/";
   margin: 0 5px;
 }
-section.detail-section div.detail-info ul.meta li .logo-small {
+section.detail-section div.detail-info ul.meta li div.vote-average {
+  position: relative;
   display: inline-block;
-  margin-right: 5px;
-  width: 25px;
-  transform: translateY(5px);
+  vertical-align: bottom;
+  width: 60px;
+  height: 60px;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg {
+  width: 100%;
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 0 5px rgba(3, 179, 228, 0.5);
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle {
+  stroke-width: 7px;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle.stroke {
+  stroke: #fff;
+  opacity: 0.2;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle.progress {
+  stroke-dasharray: 10px;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  fill: none;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average b {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average img.logo-small {
+  position: absolute;
+  top: 10px;
+  left: 110%;
+  width: 30px;
 }
 section.detail-section div.detail-info ul.meta li i {
   font-size: 0.8em;
 }
 section.detail-section div.detail-info ul.meta li em {
   font-size: 1.1em;
-}
-section.detail-section div.detail-info ul.meta li em.vote-average {
-  display: inline-block;
-  padding: 0 7px;
-  border-radius: 5px;
-  height: 23px;
-  line-height: 22px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 section.detail-section div.detail-info ul.meta li small {
   font-size: 0.9em;

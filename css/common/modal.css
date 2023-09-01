@@ -74,13 +74,19 @@ section.person-modal div.center h4 {
   font-size: 1.3em;
   border-bottom: 1px solid var(--green);
 }
-section.person-modal div.center li {
-  padding: 5px;
-}
-section.person-modal div.center ul.profile {
+section.person-modal div.center ul {
   padding: 10px;
   border-radius: 5px;
   background: rgba(238, 238, 238, 0.1);
+  overflow: hidden;
+  max-height: 140px;
+  transition: max-height 0.5s;
+}
+section.person-modal div.center ul.active {
+  max-height: 1000px;
+}
+section.person-modal div.center ul li {
+  padding: 5px;
 }
 section.person-modal div.center ul.profile li:not(:last-child) {
   white-space: nowrap;
@@ -95,29 +101,22 @@ section.person-modal div.center ul.profile li small {
 section.person-modal div.center ul.profile li em {
   font-style: italic;
 }
-section.person-modal div.center ul.profile.active {
-  overflow: hidden;
-}
-section.person-modal div.center ul.profile.active li:last-child {
-  height: 8vh;
-}
 section.person-modal div.center .more {
   margin-bottom: 30px;
   background: rgba(238, 238, 238, 0.3);
   width: 100%;
   padding: 3px 0;
 }
-section.person-modal div.center .more .open {
-  display: none;
-}
-section.person-modal div.center .more.active .close {
+section.person-modal div.center .more .close {
   display: none;
 }
 section.person-modal div.center .more.active .open {
+  display: none;
+}
+section.person-modal div.center .more.active .close {
   display: inline;
 }
 section.person-modal div.center ul.filmography {
-  margin-bottom: 30px;
   padding: 10px;
   border-radius: 5px;
   background: rgba(238, 238, 238, 0.1);

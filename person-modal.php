@@ -4,7 +4,7 @@
     <img src="" alt="" class="person-photo">
 
     <h4>[profile]</h4>
-    <ul class="profile active">
+    <ul class="profile">
       <li>
         <small>이름</small>
         <em class="person-name"></em>
@@ -25,11 +25,12 @@
         <em class="person-biography"></em>
       </li>
     </ul>
-    <button class="more active"><span class="open">...더 보기</span><span class="close">닫기</span></button>
+    <button value=".profile" class="more"><span class="open">...더 보기</span><span class="close">닫기</span></button>
 
     <h4>[filmography]</h4>
     <ul class="filmography">
     </ul>
+    <button value=".filmography" class="more"><span class="open">...더 보기</span><span class="close">닫기</span></button>
 
   </div>
   <button class="modal-close-btn">

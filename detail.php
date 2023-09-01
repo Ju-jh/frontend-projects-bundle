@@ -12,8 +12,14 @@
       <h2 class="title"></h2>
       <ul class="meta">
         <li>
-          <img class="logo-small" src="./img/logo-square.png" alt="">
-          <em class="vote-average"></em>
+          <div class="vote-average">
+            <svg viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="35" class="stroke"></circle>
+              <circle cx="50" cy="50" r="35" pathLength="10" class="progress"></circle>
+            </svg>
+            <b class="average"></b>
+            <img class="logo-small" src="./img/logo-square.png" alt="">
+          </div>
           <small class="vote-cnt"></small>
         </li>
         <li>

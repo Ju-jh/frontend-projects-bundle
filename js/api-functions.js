@@ -66,57 +66,6 @@ export const getSimilarMovies = (movieId, lang = ko) => {
   });
 }; //getSimilarMovies
 
-export const displayMovies = (data, container, gridClassName = '') => {
-  if (data.length === 0) {
-    qySel(container).innerHTML =
-      '<p class = "no-data">관련 영화목록이 존재하지 않습니다.</p>';
-    return false;
-  }
-  return new Promise((resolve) => {
-    data.forEach((movie) => {
-      let { id, poster_path, title, genre_ids, vote_average, release_date } =
-        movie;
-
-      let vote_averages = vote_average.toFixed(1);
-
-      let imgPath = poster_path
-        ? `${imgPaths.w500}${poster_path}`
-        : './img/no-image.jpg';
-
-      let gradeLevel = Math.floor(vote_average - 5);
-      if (gradeLevel > 4) gradeLevel = 4;
-      if (gradeLevel < 0) gradeLevel = 0;
-      let gradeColor = gradeColors[gradeLevel];
-
-      let genre = [];
-      genre_ids.forEach((v) => {
-        genre.push(genreIdx[v]);
-      });
-
-      qySel(container).insertAdjacentHTML(
-        'beforeend',
-        `
-          <figure class="${gridClassName}">
-            <a href="detail.php?id=${id}">
-              <div class="imgbox">
-                <img src="${imgPath}" alt="">
-                <span style="background:${gradeColor}"></span>
-                <small>${vote_averages}</small>
-              </div>
-              <figcaption>
-                <h3>${title}</h3>
-                <p>${genre}</p>
-                <p>${release_date}</p>
-              </figcaption>
-            </a>
-          </figure>
-      `
-      );
-    }); //forEach
-    resolve();
-  }); //Promise
-}; //displayMovies
-
 export const getCredits = (movieId, lang = ko) => {
   return new Promise(async (resolve) => {
     const result = await fetch(
@@ -180,7 +129,58 @@ export const displayImages = (data, container) => {
   });
 
   $('.viewbox-btn').viewbox();
-};
+}; //displayImages
+
+export const displayMovies = (data, container, gridClassName = '') => {
+  if (data.length === 0) {
+    qySel(container).innerHTML =
+      '<p class = "no-data">관련 영화목록이 존재하지 않습니다.</p>';
+    return false;
+  }
+  return new Promise((resolve) => {
+    data.forEach((movie) => {
+      let { id, poster_path, title, genre_ids, vote_average, release_date } =
+        movie;
+
+      let vote_averages = vote_average.toFixed(1);
+
+      let imgPath = poster_path
+        ? `${imgPaths.w500}${poster_path}`
+        : './img/no-image.jpg';
+
+      let gradeLevel = Math.floor(vote_average - 5);
+      if (gradeLevel > 4) gradeLevel = 4;
+      if (gradeLevel < 0) gradeLevel = 0;
+      let gradeColor = gradeColors[gradeLevel];
+
+      let genre = [];
+      genre_ids.forEach((v) => {
+        genre.push(genreIdx[v]);
+      });
+
+      qySel(container).insertAdjacentHTML(
+        'beforeend',
+        `
+          <figure class="${gridClassName}">
+            <a href="detail.php?id=${id}">
+              <div class="imgbox">
+                <img src="${imgPath}" alt="">
+                <span style="background:${gradeColor}"></span>
+                <small>${vote_averages}</small>
+              </div>
+              <figcaption>
+                <h3>${title}</h3>
+                <p>${genre}</p>
+                <p>${release_date}</p>
+              </figcaption>
+            </a>
+          </figure>
+      `
+      );
+    }); //forEach
+    resolve();
+  }); //Promise
+}; //displayMovies
 
 export const displayPeople = (data, container) => {
   if (data.length === 0) {
@@ -220,7 +220,7 @@ export const displayPeople = (data, container) => {
       showModal('.person-modal');
     });
   });
-};
+}; //displayPeople
 
 export const getProfile = (personId, lang = ko) => {
   return new Promise(async (resolve) => {
@@ -228,7 +228,7 @@ export const getProfile = (personId, lang = ko) => {
     let data = await result.json();
     resolve(data);
   });
-};
+}; //getProfile
 
 export const displayPerson = (profileData, en) => {
   let {
@@ -261,7 +261,7 @@ export const displayPerson = (profileData, en) => {
   qySel('.person-biography').innerText = biography;
 
   // =()?:'관련 정보가 없습니다'
-};
+}; //displayPerson
 
 export const getFilmography = (personId, lang = ko) => {
   return new Promise(async (resolve) => {
@@ -271,7 +271,7 @@ export const getFilmography = (personId, lang = ko) => {
     const data = result.json();
     resolve(data);
   });
-};
+}; //getFilmography
 
 export const displayFilmography = (filmographyData) => {
   let { cast, crew } = filmographyData;
@@ -296,4 +296,22 @@ export const displayFilmography = (filmographyData) => {
     );
   });
   console.log(filmography);
+}; //displayFilmography
+
+export let controller = new AbortController();
+let signal = controller.signal;
+
+export const searchByKeyword = async (keyword, lang = ko) => {
+  return new Promise(async (resovle) => {
+    controller = new AbortController();
+    signal = controller.signal;
+    try {
+      const result = await fetch(
+        `${baseUrl}/search/movie${apiKey}${lang}&query=${keyword}`,
+        { signal }
+      );
+      const data = await result.json();
+      resovle(data);
+    } catch {}
+  });
 };

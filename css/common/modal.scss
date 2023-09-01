@@ -30,10 +30,12 @@ section.person-modal {
   overflow: auto;
   z-index: 101;
   background: rgba(#000, 0.85);
+
   div.center {
     width: min(90%, 600px);
     margin: 10vh auto;
     text-align: center;
+
     img.person-photo {
       width: min(60%, 300px);
       margin: 0 auto;
@@ -41,6 +43,7 @@ section.person-modal {
       border: 5px solid #eee;
       @include m.box-shadow;
     }
+
     h4 {
       margin-bottom: 20px;
       padding-bottom: 10px;
@@ -51,14 +54,23 @@ section.person-modal {
       font-size: 1.3em;
       border-bottom: 1px solid var(--green);
     }
-    li {
-      padding: 5px;
-    }
 
-    ul.profile {
+    ul {
       padding: 10px;
       border-radius: 5px;
       background: rgba(#eee, 0.1);
+      overflow: hidden;
+      max-height: 140px;
+      transition: max-height 0.5s;
+      &.active {
+        max-height: 1000px;
+      }
+      li {
+        padding: 5px;
+      }
+    }
+
+    ul.profile {
       li {
         &:not(:last-child) {
           @include m.ellipsis;
@@ -72,12 +84,6 @@ section.person-modal {
           font-style: italic;
         }
       }
-      &.active {
-        overflow: hidden;
-        li:last-child {
-          height: 8vh;
-        }
-      }
     }
 
     .more {
@@ -85,21 +91,21 @@ section.person-modal {
       background: rgba(#eee, 0.3);
       width: 100%;
       padding: 3px 0;
-      .open {
-        display: none;
-      }
-    }
-    .more.active {
       .close {
         display: none;
       }
+    }
+
+    .more.active {
       .open {
+        display: none;
+      }
+      .close {
         display: inline;
       }
     }
 
     ul.filmography {
-      margin-bottom: 30px;
       padding: 10px;
       border-radius: 5px;
       background: rgba(#eee, 0.1);

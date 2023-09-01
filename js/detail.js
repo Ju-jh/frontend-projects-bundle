@@ -51,7 +51,7 @@ genres = genres.length
   ? genres.map((genre) => genre.name).join(' / ')
   : '장르 정보 없음';
 if (!overview) {
-  let enMovieData = await getMovie(id, en);
+  let enMovieData = await getMovie(id);
   overview = enMovieData.overview
     ? enMovieData.overview
     : '영화 설명 정보가 없습니다';
@@ -90,8 +90,10 @@ setSlide(images.slice(0, 4));
 
 qySel('.poster').src = posterPath;
 qySel('.title').innerText = title;
-qySel('.vote-average').innerText = vote_averages;
-qySel('.vote-average').style.background = gradeColor;
+qySel('.average').innerText = vote_averages;
+qySel('.average').style.color = gradeColor;
+qySel('.progress').style.strokeDashoffset = 10 - vote_average + 'px';
+qySel('.progress').style.stroke = gradeColor;
 qySel('.vote-cnt').innerText = `(${vote_count})`;
 qySel('.hour').innerText = hour;
 qySel('.min').innerText = min;
