@@ -1,12 +1,11 @@
 import { imgPaths, ko, options } from './api-data.js';
 import { displayMovies, getMovies } from './api-functions.js';
-import { qySel } from './functions.js';
+import { qySel, qySelAll } from './functions.js';
 
 let url = new URL(location.href);
 let params = new URLSearchParams(url.search);
 let list = params.get('list');
 let page = parseInt(params.get('page'));
-
 let option;
 
 if (list === 'playing') {
@@ -19,9 +18,10 @@ if (list === 'playing') {
   option = options.upcoming;
   qySel('.list-title').innerText = '최신/개봉예정';
 }
+
 let movieData = await getMovies(option, ko, page);
 let totalPages = parseInt(movieData.total_pages);
-totalPages = totalPages > 500 ? 500 : totalPages;
+totalPages = totalPages > 100 ? 100 : totalPages;
 let movies = movieData.results;
 
 let images = movies.slice(0, 5).map((v) => {
@@ -57,38 +57,36 @@ setSlide(images);
 
 let startPaging =
   page % 5 !== 0 ? Math.floor(page / 5) * 5 + 1 : Math.floor(page / 5) * 5 - 4;
-
-let finishPaging = startPaging + 4;
-let endPaging = finishPaging > totalPages ? totalPages : finishPaging;
-
+let endPaging = startPaging + 4;
+endPaging = endPaging < totalPages ? endPaging : totalPages;
+let finishPaging = Math.ceil(totalPages / 5) * 5 - 5;
 if (page >= 5) {
   qySel('.paging').insertAdjacentHTML(
     'beforeend',
     `
     <a href="./list.php?list=${list}&page=${startPaging - 5}">이전</a>
-    `
+  `
   );
-}
+} //if
 
 for (let i = startPaging; i <= endPaging; i++) {
   qySel('.paging').insertAdjacentHTML(
     'beforeend',
     `
     <a class="paging-btn${i}" href="./list.php?list=${list}&page=${i}">${i}</a>
-    `
+  `
   );
-}
+} //for
 
 qySel(`.paging-btn${page}`).classList.add('active');
 
-if (totalPages > finishPaging) {
+if (page <= finishPaging) {
   qySel('.paging').insertAdjacentHTML(
     'beforeend',
     `
-    <a href="./list.php?list=${list}&page=${startPaging + 5}">다음</a>
-    `
+    <a href="./list.php?list=${list}&page=${endPaging + 5}">다음</a>
+  `
   );
 }
-
 console.log(totalPages);
 displayMovies(movies, '.grid-container');
