@@ -315,3 +315,16 @@ export const searchByKeyword = async (keyword, lang = ko) => {
     } catch {}
   });
 };
+
+export const searchByGenres = (genreNumbers, page = '1') => {
+  return new Promise(async (resolve) => {
+    controller = new AbortController();
+    signal = controller.signal;
+    const result = await fetch(
+      `${baseUrl}/discover/movie${apiKey}&with_genres=${genreNumbers}&page=${page}`,
+      { signal }
+    );
+    const data = await result.json();
+    resolve(data);
+  });
+};

@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="./css/detail/detail-info.css">
   <link rel="stylesheet" href="./css/detail/detail-section.css">
   <link rel="stylesheet" href="./css/search/search-form.css">
+  <link rel="stylesheet" href="./css/list/list.css">
   <script src="https://kit.fontawesome.com/40d55bb55c.js" crossorigin="anonymous"></script><!-- 변경할것 -->
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -41,7 +42,17 @@
       </h1>
 
       <nav class="gnb">
-        <a href="./search.php">
+        <div class="menu-list">
+          <button class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="./list.php?list=playing&page=1">현재상영작</a></li>
+            <li><a href="./list.php?list=popular&page=1">인기영화</a></li>
+            <li><a href="./list.php?list=upcoming&page=1">최신/개봉예정</a></li>
+          </ul>
+        </div>
+        <a href="./search.php" class="goto-search">
           <i class="fa-solid fa-magnifying-glass"></i>검색하기
         </a>
       </nav>

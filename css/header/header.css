@@ -24,7 +24,7 @@ header .center {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 98%;
   margin: 0 auto;
   height: inherit;
 }
@@ -49,15 +49,51 @@ header .center h1:hover img:first-of-type {
 header .center h1:hover img:last-of-type {
   transform: rotateX(360deg);
 }
-header .center .gnb a {
+header .center .gnb {
+  position: relative;
+}
+header .center .gnb div.menu-list {
+  display: inline-block;
+  top: 0;
+  right: 110%;
+  position: absolute;
+}
+header .center .gnb div.menu-list button.toggle-btn {
+  right: 100%;
+}
+header .center .gnb div.menu-list button.toggle-btn:hover {
+  color: var(--green);
+}
+header .center .gnb div.menu-list ul {
+  display: none;
+  position: absolute;
+  padding: 20px;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
+  background: #000;
+}
+header .center .gnb div.menu-list ul.active {
+  display: block;
+}
+header .center .gnb div.menu-list ul li {
+  margin: 14px 0;
+  white-space: nowrap;
+}
+header .center .gnb div.menu-list ul li a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+header .center .gnb a.goto-search {
   font-weight: 600;
   transition: all 0.3s;
   white-space: nowrap;
 }
-header .center .gnb a i {
+header .center .gnb a.goto-search i {
   margin-right: 5px;
 }
-header .center .gnb a:hover {
+header .center .gnb a.goto-search:hover {
   color: var(--green);
 }
 

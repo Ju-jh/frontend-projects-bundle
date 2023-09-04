@@ -23,6 +23,7 @@ window.addEventListener('resize', (e) => {
   scrollY = window.scrollY;
   setTopBtn();
 });
+
 window.addEventListener('scroll', (e) => {
   scrollY = window.scrollY;
   setTopBtn();
@@ -30,4 +31,8 @@ window.addEventListener('scroll', (e) => {
 
 qySel('.top-btn').addEventListener('click', (e) => {
   scrollToTop();
+});
+
+qySel('.toggle-btn').addEventListener('click', (e) => {
+  qySel('.menu-list ul').classList.toggle('active');
 });

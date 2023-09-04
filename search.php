@@ -19,8 +19,7 @@
     </fieldset>
     <!--  -->
 
-    <fieldset>
-      버튼 검색 기능
+    <fieldset class="genre-btns">
     </fieldset>
   </form>
 
@@ -34,5 +33,7 @@
     </div>
   </section>
 </main>
+
+<div class="trigger"></div>
 
 <?php include "footer.php" ?>
