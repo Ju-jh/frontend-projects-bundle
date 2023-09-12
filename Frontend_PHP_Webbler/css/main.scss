@@ -1,0 +1,57 @@
+@use "mixin" as m;
+
+body {
+  font-family: "Montserrat", "Noto Sans KR", sans-serif;
+  color: #333;
+  font-size: 15px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.serif {
+  font-family: "Nanum Myeongjo", serif;
+}
+:root {
+  --blue: #5700fa;
+  --green: #00fbb9;
+  --gray: #eee;
+  --dark: #333;
+}
+
+.section-summary {
+  margin-bottom: 50px;
+  h2 {
+    margin-bottom: 15px;
+    font-size: min(8vw, 3.5em);
+    font-weight: 900;
+    line-height: 110%;
+    &.active b::before {
+      width: 70%;
+    }
+    b {
+      position: relative;
+      i {
+        position: relative;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        transition: width 1s;
+        @media #{m.$minSm} {
+          height: 15px;
+        }
+        @media #{m.$maxSm} {
+          height: 10px;
+        }
+        background: var(--green);
+      }
+    }
+  }
+  p {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}

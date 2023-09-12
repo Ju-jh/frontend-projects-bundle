@@ -1,0 +1,132 @@
+.works-bg {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: pink;
+}
+.works-bg p {
+  font-size: min(15vw, 13em);
+  font-weight: 900;
+  letter-spacing: 3vw;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+.works-bg #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.works-content {
+  width: min(95%, 1400px);
+  margin: 0 auto;
+  padding-top: 25vh;
+}
+.works-content figure {
+  margin-bottom: 25vh;
+  border-radius: 20px;
+}
+@media screen and (min-width:1000px) {
+  .works-content figure {
+    width: 30%;
+  }
+  .works-content figure:nth-child(4n+1) {
+    margin-left: auto;
+  }
+  .works-content figure:nth-child(even) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .works-content figure:nth-child(4n+3) {
+    margin-right: auto;
+  }
+}
+@media screen and (min-width:500px) and (max-width:1000px) {
+  .works-content figure {
+    width: 70%;
+  }
+  .works-content figure:nth-child(odd) {
+    margin-left: auto;
+  }
+}
+@media screen and (max-width:500px) {
+  .works-content figure {
+    width: 100%;
+  }
+}
+.works-content figure a:hover div {
+  border-color: var(--green);
+  transform: scale(0.95);
+}
+.works-content figure a div {
+  overflow: hidden;
+  border: 7px solid #ddd;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+.works-content figure a div img {
+  width: 100%;
+}
+.works-content figure a figcaption {
+  color: #fff;
+}
+.works-content figure a figcaption h2 {
+  display: inline-block;
+  position: relative;
+  margin: 20px 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.works-content figure a figcaption h2::before {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  background: var(--green);
+  mix-blend-mode: multiply;
+}
+.works-content figure a figcaption p {
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+}
+.works-content figure a figcaption p br {
+  display: none;
+}
+.works-content figure a figcaption p span {
+  font-size: 1.2em;
+  font-weight: 600;
+  animation: rolling 5s infinite linear;
+}
+@keyframes rolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 6;
+  color: #fff;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+.cursor i {
+  color: red;
+}/*# sourceMappingURL=works.css.map */

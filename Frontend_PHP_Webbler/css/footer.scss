@@ -1,0 +1,48 @@
+@use "mixin" as m;
+
+footer {
+  position: relative;
+  padding: 50px 0;
+  background: var(--dark);
+  .center {
+    width: min(90%, 1400px);
+    margin: 0 auto;
+    text-align: center;
+    @media screen and (min-width: 1100px) {
+      display: flex;
+      align-items: center;
+      > * {
+        flex: 1;
+      }
+      .info {
+        border: 1px dotted #fff;
+        border-top: none;
+        border-bottom: none;
+      }
+    } //center miLg
+    @media screen and (max-width: 1100px) {
+      .info {
+        margin: 20px 0;
+        padding: 20px 0;
+        border: 1px dotted #fff;
+        border-left: none;
+        border-right: none;
+      }
+    } //center maxLg
+    h6 {
+      img {
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+    address {
+      em {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+      color: #fff;
+    }
+  } //center
+} //footer

@@ -1,0 +1,170 @@
+@media screen and (min-width:1000px) {
+  .price-bg {
+    position: fixed;
+    width: 70%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .price-bg img {
+    width: 100%;
+  }
+}
+@media screen and (max-width:1000px) {
+  .price-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  .price-bg img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: center;
+       object-position: center;
+    opacity: 0.3;
+  }
+}
+
+.price-main {
+  overflow: hidden;
+  position: relative;
+}
+.price-main .price-section1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+.price-main .price-section1 #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.price-main .price-section1 .center {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 0 auto;
+}
+.price-main .price-section1 .center .textbox {
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  max-width: 4500px;
+}
+.price-main .price-section1 .center .desc p {
+  margin-bottom: 20px;
+}
+.price-main .price-section2 {
+  padding: 10vh 0;
+  background: var(--blue);
+}
+.price-main .price-section2 .center {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
+.price-main .price-section2 .center .title-container {
+  margin-top: -20vh;
+  color: white;
+}
+@media screen and (min-width:1000px) {
+  .price-main .price-section2 .center .title-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .price-main .price-section2 .center .title-container figure {
+    width: 35%;
+  }
+  .price-main .price-section2 .center .title-container .section-summary {
+    width: 50%;
+  }
+}
+@media screen and (max-width:1000px) {
+  .price-main .price-section2 .center .title-container figure {
+    width: 60%;
+    min-width: 300px;
+    margin-bottom: 30px;
+  }
+}
+.price-main .price-section2 .center .title-container figure {
+  perspective: 1000px;
+}
+.price-main .price-section2 .center .title-container figure img {
+  width: 100%;
+  transform-origin: center bottom;
+  transform: rotateX(-77deg);
+  transition: all 1s;
+}
+.price-main .price-section2 .center .title-container figure img.active {
+  transform: rotateX(0deg);
+}
+.price-main .price-section2 .center .price-table {
+  width: min(95%, 1400px);
+  margin: 0 auto;
+  margin-top: 50px;
+}
+@media screen and (min-width:1000px) {
+  .price-main .price-section2 .center .price-table {
+    display: flex;
+    justify-content: space-between;
+  }
+  .price-main .price-section2 .center .price-table li {
+    width: 30%;
+  }
+}
+@media screen and (max-width:1000px) {
+  .price-main .price-section2 .center .price-table li {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .price-main .price-section2 .center .price-table li:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+.price-main .price-section2 .center .price-table li {
+  perspective: 1000px;
+  background: #fff;
+}
+.price-main .price-section2 .center .price-table li p {
+  border-bottom: 1px solid #ccc;
+  background: #eee;
+  padding: 20px;
+  transform: rotateX(180deg);
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+.price-main .price-section2 .center .price-table li p.active {
+  transform: rotateX(0deg);
+}
+.price-main .price-section2 .center .price-table li p.option, .price-main .price-section2 .center .price-table li p.price {
+  text-align: center;
+  background: var(--green);
+}
+.price-main .price-section2 .center .price-table li p em {
+  font-weight: 600;
+  font-size: 1.2em;
+  display: block;
+}
+.price-main .price-section2 .center .price-table li p b {
+  font-size: 3em;
+  font-weight: 900;
+  display: block;
+}
+.price-main .price-section2 .center .price-table li p i {
+  font-weight: 900;
+  margin-right: 10px;
+}
+.price-main .price-section2 .center .price-table li p a {
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  transition: all 0.5s;
+  color: #fff;
+  border: 1px solid #000;
+  background-color: #000;
+}
+.price-main .price-section2 .center .price-table li p a:hover {
+  color: #fff;
+  border: 1px solid var(--green);
+  background-color: var(--green);
+}/*# sourceMappingURL=price.css.map */
