@@ -1,0 +1,35 @@
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+.video-modal img.youtube-ratio {
+  opacity: 0;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-modal iframe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-modal .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 2em;
+  opacity: 0.7;
+}
+.video-modal .close:hover {
+  opacity: 1;
+}/*# sourceMappingURL=video-modal.css.map */

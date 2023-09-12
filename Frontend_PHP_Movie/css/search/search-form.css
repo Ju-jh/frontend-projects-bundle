@@ -1,0 +1,68 @@
+main.search-content {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 0 auto;
+  margin-top: 20vh;
+}
+
+form.search-form {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+form.search-form fieldset.search-keyword {
+  display: flex;
+  border: none;
+}
+form.search-form fieldset.search-keyword > * {
+  height: 55px;
+  border: none;
+  background: #fff;
+}
+form.search-form fieldset.search-keyword span.search-icon,
+form.search-form fieldset.search-keyword button {
+  line-height: 55px;
+  width: 55px;
+  color: var(--sky);
+  text-align: center;
+}
+form.search-form fieldset.search-keyword input {
+  flex: 1;
+  color: var(--sky);
+  font-size: 1.8em;
+  outline: none;
+}
+form.search-form fieldset.search-keyword input::-moz-placeholder {
+  color: #ddd;
+}
+form.search-form fieldset.search-keyword input::placeholder {
+  color: #ddd;
+}
+form.search-form fieldset.search-keyword input::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+form.search-form fieldset.genre-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 0;
+  border: none;
+}
+form.search-form fieldset.genre-btns button {
+  padding: 7px 20px;
+  background: var(--sky);
+  border-radius: 5px;
+  margin: 5px;
+  transition: background 0.3s;
+}
+form.search-form fieldset.genre-btns button:hover {
+  background: var(--green);
+}
+form.search-form fieldset.genre-btns button.active {
+  background: orange;
+}
+
+.trigger {
+  border: 1px solid red;
+  opacity: 0;
+}/*# sourceMappingURL=search-form.css.map */

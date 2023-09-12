@@ -1,0 +1,125 @@
+@use '../mixin' as m;
+
+header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navy);
+  background-image: url(../../img/check-pattern.png);
+  background-size: 15px;
+  @include m.box-shadow;
+  animation: bgmove 100s infinite linear;
+  @media #{m.$min-lg} {
+    height: 80px;
+  }
+  @media #{m.$max-lg} {
+    height: 60px;
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    margin: 0 auto;
+    height: inherit;
+    h1 {
+      height: 55%;
+      a {
+        display: flex;
+        height: 100%;
+        perspective: 1000px;
+        img {
+          height: 100%;
+          transition: all 0.3s;
+        }
+        img:first-of-type {
+          margin-right: 15px;
+        }
+      }
+      &:hover {
+        img:first-of-type {
+          transform: rotateY(360deg);
+        }
+        img:last-of-type {
+          transform: rotateX(360deg);
+        }
+      }
+    }
+
+    .gnb {
+      position: relative;
+      div.menu-list {
+        display: inline-block;
+        top: 0;
+        right: 110%;
+        position: absolute;
+        button.toggle-btn {
+          right: 100%;
+
+          &:hover {
+            color: var(--green);
+          }
+        }
+        ul {
+          display: none;
+          position: absolute;
+          padding: 20px;
+          top: 30px;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 5px;
+          background: #000;
+          &.active {
+            display: block;
+          }
+          li {
+            margin: 14px 0;
+            white-space: nowrap;
+            a:hover {
+              color: var(--green);
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      a.goto-search {
+        font-weight: 600;
+        transition: all 0.3s;
+        white-space: nowrap;
+        i {
+          margin-right: 5px;
+        }
+        &:hover {
+          color: var(--green);
+        }
+      }
+    }
+  }
+}
+
+.top-btn {
+  position: fixed;
+  z-index: 90;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--sky);
+  transition: all 0.5s;
+  @include m.box-shadow;
+  opacity: 0;
+  pointer-events: none;
+  @media (hover: hover) {
+    &:hover {
+      background: var(--green);
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

@@ -1,0 +1,128 @@
+@use '../mixin' as m;
+
+.home-visual {
+  position: relative;
+  height: min(70vh, 450px);
+  overflow: hidden;
+  margin-bottom: 5vh;
+  background: var(--navy);
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+  @include m.box-shadow;
+  &::before {
+    content: '';
+    @include m.pos-center;
+    pointer-events: none;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 1px solid rgba(#fff, 0.3);
+    z-index: 11;
+  }
+  div.swiper-wrapper {
+    height: 100%;
+    figure.swiper-slide {
+      position: relative;
+      height: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      &.swiper-slide-active img {
+        transform: scale(1);
+      }
+      &:hover img {
+        filter: brightness(100%);
+      }
+      img {
+        @include m.cover;
+        filter: brightness(60%);
+        transform: scale(1.1);
+        transition: transform 10s linear, filter 1s;
+      }
+      figcaption {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 90%;
+        small {
+          font-weight: 600;
+          font-size: 1.2em;
+        }
+        h6 {
+          margin-top: 5px;
+          font-size: min(8vw, 5em);
+          white-space: nowrap;
+          line-height: 1.3em;
+          font-weight: 600;
+          @media #{m.$max-xlg} {
+            @include m.ellipsis;
+          }
+        }
+        p {
+          margin: 20px 0;
+          width: min(90%, 500px);
+        }
+        button {
+          i {
+            margin-right: 5px;
+          }
+          &.play-btn {
+            margin-right: 10px;
+            @include m.button(
+              #fff,
+              #fff,
+              rgba(#fff, 0.3),
+              #000,
+              #fff,
+              rgba(#fff, 0.8)
+            );
+          }
+          &.detail-btn {
+            @include m.button(
+              #fff,
+              #fff,
+              rgba(#000, 0.3),
+              #fff,
+              #000,
+              rgba(#000, 0.8)
+            );
+          }
+        }
+      }
+    }
+  }
+  button.wheel-btn {
+    position: absolute;
+    z-index: 12;
+    left: calc(50% - 20px);
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid rgba(#fff, 0.5);
+    background: rgba(#fff, 0.3);
+    &::before {
+      content: '';
+      @include m.pos-center;
+      pointer-events: none;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(#fff, 0.5);
+      border-radius: 50%;
+    }
+    i {
+      animation: jump 0.5s infinite alternate;
+    }
+  }
+
+  @keyframes jump {
+    0% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+}

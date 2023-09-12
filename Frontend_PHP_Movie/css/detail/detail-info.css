@@ -1,0 +1,140 @@
+main.detail-content {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 30vh auto 0 auto;
+}
+
+section.detail-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (min-width:1000px) {
+  section.detail-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width:1000px) {
+  section.detail-section img.poster {
+    width: 25%;
+  }
+}
+@media screen and (max-width:1000px) {
+  section.detail-section img.poster {
+    display: none;
+  }
+}
+@media screen and (min-width:1000px) {
+  section.detail-section div.detail-info {
+    width: 70%;
+  }
+}
+section.detail-section div.detail-info h2 {
+  margin-bottom: 20px;
+  font-size: min(10vw, 5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.detail-section div.detail-info ul.meta {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+section.detail-section div.detail-info ul.meta li:not(:nth-child(2) ~ *)::after {
+  content: "/";
+  margin: 0 5px;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 60px;
+  height: 60px;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg {
+  width: 100%;
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 0 5px rgba(3, 179, 228, 0.5);
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle {
+  stroke-width: 7px;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle.stroke {
+  stroke: #fff;
+  opacity: 0.2;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average svg circle.progress {
+  stroke-dasharray: 10px;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  fill: none;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average b {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+}
+section.detail-section div.detail-info ul.meta li div.vote-average img.logo-small {
+  position: absolute;
+  top: 10px;
+  left: 110%;
+  width: 30px;
+}
+section.detail-section div.detail-info ul.meta li i {
+  font-size: 0.8em;
+}
+section.detail-section div.detail-info ul.meta li em {
+  font-size: 1.1em;
+}
+section.detail-section div.detail-info ul.meta li small {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.meta li.genres {
+  width: 100%;
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.detail-section div.detail-info p.overview {
+  margin-bottom: 20px;
+}
+section.detail-section div.detail-info ul.info {
+  padding: 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+section.detail-section div.detail-info ul.info li:not(:last-child) {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+}
+section.detail-section div.detail-info ul.info li {
+  display: flex;
+  align-items: center;
+}
+section.detail-section div.detail-info ul.info i {
+  font-size: 0.8em;
+  margin-right: 3px;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.info small {
+  font-size: 0.9em;
+  width: 50px;
+  color: rgba(255, 255, 255, 0.8);
+}
+section.detail-section div.detail-info ul.info em {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=detail-info.css.map */

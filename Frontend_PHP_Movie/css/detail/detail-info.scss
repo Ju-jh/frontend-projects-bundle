@@ -1,0 +1,137 @@
+@use '../mixin' as m;
+
+main.detail-content {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 30vh auto 0 auto;
+}
+
+section.detail-section {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media #{m.$min-lg} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  img.poster {
+    @media #{m.$min-lg} {
+      width: 25%;
+    }
+    @media #{m.$max-lg} {
+      display: none;
+    }
+  }
+
+  div.detail-info {
+    @media #{m.$min-lg} {
+      width: 70%;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: min(10vw, 5em);
+      @include m.ellipsis;
+    }
+    ul.meta {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(#fff, 0.5);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+
+      li {
+        &:not(:nth-child(2) ~ *)::after {
+          content: '/';
+          margin: 0 5px;
+        }
+        // margin-right: 10px;
+
+        div.vote-average {
+          position: relative;
+          display: inline-block;
+          vertical-align: bottom;
+          width: 60px;
+          height: 60px;
+          svg {
+            width: 100%;
+            border-radius: 50%;
+            background: var(--navy);
+            box-shadow: 0 0 5px rgba(#03b3e4, 0.5);
+            circle {
+              stroke-width: 7px;
+              &.stroke {
+                stroke: #fff;
+                opacity: 0.2;
+              }
+              &.progress {
+                stroke-dasharray: 10px;
+                transform-origin: center;
+                transform: rotate(-90deg);
+                fill: none;
+              }
+            }
+          }
+          b {
+            @include m.pos-center;
+            font-weight: 600;
+          }
+          img.logo-small {
+            position: absolute;
+            top: 10px;
+            left: 110%;
+            width: 30px;
+          }
+        }
+        i {
+          font-size: 0.8em;
+        }
+        em {
+          font-size: 1.1em;
+        }
+        small {
+          font-size: 0.9em;
+          color: rgba(#fff, 0.8);
+        }
+        &.genres {
+          width: 100%;
+          margin-top: 10px;
+          @include m.ellipsis;
+        }
+      }
+    }
+    p.overview {
+      margin-bottom: 20px;
+    }
+    ul.info {
+      padding: 20px;
+      border-radius: 5px;
+      background: rgba(#fff, 0.1);
+      li:not(:last-child) {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px dotted rgba(#fff, 0.3);
+      }
+      li {
+        display: flex;
+        align-items: center;
+      }
+      i {
+        font-size: 0.8em;
+        margin-right: 3px;
+        color: rgba(#fff, 0.8);
+      }
+      small {
+        font-size: 0.9em;
+        width: 50px;
+        color: rgba(#fff, 0.8);
+      }
+      em {
+        flex: 1;
+        @include m.ellipsis;
+      }
+    }
+  }
+}
