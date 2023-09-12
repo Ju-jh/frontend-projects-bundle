@@ -1,0 +1,43 @@
+.sub_area p {
+  margin: 30px auto;
+  text-align: center;
+  line-height: 180%;
+}
+
+.sub_area figure {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.sub_area figure img {
+  width: 100%;
+}
+
+/* ========= motion ========= */
+
+.sub_area p {
+  opacity: 0;
+  transition: all 1s;
+}
+.sub_area p:first-child {
+  transform: translateX(-200px);
+}
+.sub_area p:nth-child(2) {
+  transform: translateX(200px);
+}
+
+.sub_area figure img {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 1s;
+}
+
+.sub_area p.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sub_area figure.active img {
+  opacity: 1;
+  transform: scale(1);
+}

@@ -1,0 +1,34 @@
+.faq_list {
+  border-top: 2px solid #ccc;
+}
+
+.faq_list details[open] summary {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.faq_list details summary::marker {
+  content: '';
+}
+
+.faq_list details summary::before {
+  content: '+';
+  margin-right: 5px;
+}
+
+.faq_list details[open] summary::before {
+  content: '-';
+}
+
+.faq_list summary {
+  padding: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-bottom: 1px dotted #ccc;
+}
+
+.faq_list p {
+  line-height: 180%;
+  padding: 10px;
+  background: #eee;
+}

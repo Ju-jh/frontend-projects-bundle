@@ -1,0 +1,202 @@
+.home_visual {
+  height: 600px;
+  background-color: #000;
+}
+
+.feature{
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  margin: 40px auto;
+}
+
+.feature figure{
+  flex: 1;
+}
+
+.feature figure:not(:last-child){
+  margin-right: 10px;
+}
+
+.feature figure a div{
+  border: 5px solid #DDD;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.feature figure a div img{
+width: 100%;
+}
+
+.feature figure a figcaption h3{
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  margin: 10px 0;
+  padding: 0 10px;
+  line-height: 30px;
+  background: var(--dark-color);
+  color: #fff;
+  font-weight: 600;
+}
+.feature figure a figcaption h3::after{
+  content: "";
+  position: absolute;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-left-color: var(--dark-color);
+}
+
+.feature figure a figcaption p{
+  position: relative;
+  font-weight: 600;
+  line-height: 160%;
+  padding-left: 15px;
+}
+
+.feature figure a figcaption p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: var(--dark-color);
+}
+
+/* ========== hover ========== */
+
+.feature figure a:hover div{
+  border-color: var(--sub-color);
+}
+
+.feature figure a:hover h3 {
+  background: var(--point-color);
+}
+
+.feature figure a:hover h3::after{
+  border-left-color: var(--point-color);
+}
+
+.feature figure a:hover p {
+  color: var(--sub-color);
+}
+
+.feature figure a:hover p::after{
+  background: var(--sub-color);
+}
+
+/* ========== scroll motion ========== */
+
+
+.feature figure a div,
+.feature figure a figcaption h3,
+.feature figure a figcaption p {
+  opacity: 0;
+  transition: opcity 1s, transform 1s;
+}
+
+.feature figure a div,
+.feature figure a figcaption p {
+  transform: translateX(50px);
+}
+
+.feature figure a figcaption h3 {
+  transform: translateX(-50px);
+}
+
+.feature figure.active a div,
+.feature figure.active a figcaption h3,
+.feature figure.active a figcaption p{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.feature figure.active a div{
+  overflow: hidden;
+}
+
+section.latest {
+  margin: 40px auto;
+}
+
+.latest .news{
+  margin-bottom: 30px;
+  padding: 20px 0;
+  background: #EEE;
+}
+
+.latest .news .center{
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.latest .news h3 {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.latest .news .rolling_container{
+  display: flex;
+  width: 250px;
+  overflow: hidden;  
+}
+
+.latest .news .rolling_container .rolling {
+  display: inline-flex;
+  animation: rolling 27s linear infinite;
+}
+
+@keyframes rolling{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-100%);}
+}
+
+.latest .news .rolling_container .rolling p {
+  margin-right: 25px;
+  white-space: nowrap;
+}
+
+.latest .news .rolling_container .rolling p::first-letter{
+  font-family: 600;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.latest .bottom{
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.latest .bottom article{
+  box-sizing: border-box;
+}
+
+.latest .bottom article h3{
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.latest .bottom .latest_notice{
+  width: 30%;
+  padding-right: 30px;
+}
+
+.latest .bottom .latest_gallery{
+  width: 50%;
+  padding: 0 30px;
+  border-left: 1px solid #CCC;
+}
+
+.latest .bottom .banner{
+  width: 20%;
+  padding-left: 30px;
+}
+
+.latest .bottom .banner img{
+  width: 100%;
+}

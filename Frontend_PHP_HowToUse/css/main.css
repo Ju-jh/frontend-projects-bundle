@@ -1,0 +1,19 @@
+body {
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  color: #555;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.serif {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+:root {
+  --main-color: #a99783;
+  --sub-color: #9a774f;
+  --point-color: #ff8800;
+  --dark-color: #181616;
+}

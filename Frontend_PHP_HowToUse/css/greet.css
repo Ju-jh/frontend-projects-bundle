@@ -1,0 +1,46 @@
+.greet_section p {
+  margin: 20px 0;
+  text-align: center;
+  line-height: 180%;
+}
+
+.greet_section figure {
+  width: 850px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.greet_section figure img {
+  width: 49%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* .greet_section figure {
+  text-align: center;
+}
+.greet_section figure img {
+  width: 45%;
+  display: inline-block;
+} */
+
+/* =============motion============== */
+
+.greet_section > * {
+  opacity: 0;
+  transition: all 1s;
+}
+.greet_section > *:nth-child(odd) {
+  transform: translateX(-100px);
+}
+.greet_section > *:nth-child(even) {
+  transform: translateX(100px);
+}
+
+.greet_section > *.active {
+  transform: translateX(0);
+  opacity: 1;
+}

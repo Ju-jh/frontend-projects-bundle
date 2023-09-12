@@ -1,0 +1,50 @@
+section.biz_intro > p {
+  margin: 30px 0;
+  text-align: center;
+  line-height: 180%;
+}
+
+section.biz_intro > div {
+  display: flex;
+  margin: 50px 0;
+}
+
+section.biz_intro > div figure {
+  flex: 1;
+  padding: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+}
+
+section.biz_intro > div figure img {
+  width: 100%;
+}
+
+section.biz_intro > div figure h3 {
+  padding: 10px;
+  color: #ccc;
+  font-size: 1.1em;
+  font-weight: 600;
+  background-color: var(--dark-color);
+}
+
+section.biz_intro > div figure p {
+  padding: 10px;
+  background-color: #333;
+  color: #ccc;
+  line-height: 180%;
+}
+
+/* ============ motion ============ */
+
+section.biz_intro > p {
+  transform: translateY(70px);
+  opacity: 0;
+  transition: all 1s;
+}
+
+section.biz_intro > p.active {
+  transform: translateY(0);
+  opacity: 1;
+}

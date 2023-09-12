@@ -1,0 +1,45 @@
+.location_section dl {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--main-color);
+}
+
+.location_section dl > * {
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.location_section dl dt {
+  width: 20%;
+  background-color: #eee;
+}
+
+.location_section dl dd {
+  width: 80%;
+}
+
+.location_section iframe {
+  margin-top: 30px;
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  border: 10px solid #ddd;
+}
+
+/* motion */
+.location_section > * {
+  opacity: 0;
+  transition: all 1s;
+}
+.location_section > dl {
+  transform: translateX(-100px);
+}
+.location_section > iframe {
+  transform: translateX(100px);
+}
+
+.location_section > *.active {
+  transform: translateX(0);
+  opacity: 1;
+}
